@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Footer from "./Footer";
+import {Link} from "react-router-dom";
+
 function Home(){
     var settings = {
         dots: true,
@@ -25,30 +27,30 @@ function Home(){
                     <span className="text-center menu-title">
                         Κατηγορίες
                     </span>
-                    <div className="menu-item mt-3">
+                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/desktops">
                         <i className="bi bi-pc-display"></i>
                         <span className="ms-3">Desktops</span>
-                    </div>
-                    <div className="menu-item mt-3">
+                    </Link>
+                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/laptops">
                         <i className="bi bi-laptop"></i>
                         <span className="ms-3">Laptops</span>
-                    </div>
-                    <div className="menu-item mt-3">
+                    </Link>
+                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/tablets">
                         <i className="bi bi-tablet-landscape"></i>
                         <span className="ms-3">Tablets</span>
-                    </div>
-                    <div className="menu-item mt-3">
+                    </Link>
+                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/phones">
                         <i className="bi bi-phone"></i>
                         <span className="ms-3">Κινητά</span>
-                    </div>
-                    <div className="menu-item mt-3">
+                    </Link>
+                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/monitors">
                         <i className="bi bi-tv"></i>
                         <span className="ms-3">Οθόνες</span>
-                    </div>
-                    <div className="menu-item mt-3">
+                    </Link>
+                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/networks">
                         <i className="bi bi-router"></i>
                         <span className="ms-3">Δικτυακά</span>
-                    </div>
+                    </Link>
                 </div>
                 <div className="banner border-light border bg-secondary">
                     <button className="mt-2 btn btn-light shadow-none right-banner-btn text-light fw-bold btn-banner">

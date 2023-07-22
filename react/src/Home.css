@@ -60,7 +60,9 @@
 }
 
 .menu-item{
+    border: 0 !important;
     font-size: 1.5rem;
+    text-decoration: none !important;
 }
 
 .popular-card{

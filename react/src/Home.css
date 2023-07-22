@@ -1,0 +1,108 @@
+.banner{
+    position: relative;
+    width: 45%;
+    height: 300px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left:auto;
+    margin-right:auto;
+    flex-shrink: 0;
+    background: url(./home-banner.webp), lightgray 50% / cover no-repeat;
+    background-size: cover;
+    border-radius: 1rem;
+}
+
+.btn-banner{
+    position: absolute;
+    top: 230px;
+    right: 50px;
+}
+
+.right-banner{
+    height: 300px;
+    width: 30%;
+    right: 0;
+    top: 0;
+    border-radius: 0.5rem;
+}
+
+.right-banner img{
+    width: 200px;
+    height: 200px;
+}
+
+.right-banner span{
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    -webkit-text-stroke: 1px white;
+}
+
+.right-banner-btn{
+    width: 150px;
+    height: 50px;
+    background-color: #4B3E97;
+    font-size: 1.2rem;
+}
+
+.left-menu{
+    width: 15%;
+    height: 300px;
+    left: 0;
+    top: 0;
+}
+
+.menu-title{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.menu-item{
+    font-size: 1.5rem;
+}
+
+.popular-card{
+    background-color: rgb(227, 225, 225) !important;
+    height: 200px;
+    width: 200px !important;
+    border-radius: 1rem;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-prev:before, .slick-next:before{
+    color: #8375d0 !important;
+}
+
+.popular-card img{
+    max-height: 90%;
+    max-width: 90%;
+}
+
+.slick-prev:before, .slick-next:before{
+    font-size: 40px !important;
+}
+
+.popular-card img {
+    margin: auto;
+}
+.slick-dots li button:before {
+    color: #8375d0 !important;
+    font-size: 10px !important;
+    margin-top: 1rem !important;
+}
+
+.slick-slide > div {
+    display: grid;
+    place-items: center;
+}
+
+.popular-title{
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 600;
+}

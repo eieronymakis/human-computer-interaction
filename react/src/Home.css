@@ -1,12 +1,11 @@
 .banner{
     position: relative;
     width: 45%;
-    height: 300px;
+    height: 20rem;
     top: 0;
     left: 0;
     right: 0;
-    margin-left:auto;
-    margin-right:auto;
+    margin-right: 2rem;
     flex-shrink: 0;
     background: url(./home-banner.webp), lightgray 50% / cover no-repeat;
     background-size: cover;
@@ -19,9 +18,13 @@
     right: 50px;
 }
 
+.btn-banner:hover{
+    background-color: #8375d0;
+}
+
 .right-banner{
-    height: 300px;
-    width: 30%;
+    height: 20rem;
+    width: 25%;
     right: 0;
     top: 0;
     border-radius: 0.5rem;
@@ -47,14 +50,18 @@
     font-size: 1.2rem;
 }
 
+.right-banner-btn:hover{
+    background-color: #8375d0;
+}
+
 .left-menu{
-    width: 15%;
-    height: 300px;
+    width: 20%;
+    height: 20rem;
     left: 0;
     top: 0;
 }
 
-.menu-title{
+.menu-title{    
     font-size: 1.5rem;
     font-weight: 900;
 }
@@ -63,43 +70,43 @@
     border: 0 !important;
     font-size: 1.5rem;
     text-decoration: none !important;
+    width: 180px;
+    text-align: left !important;
+    transition: 0.2s;
+}
+
+.menu-item:hover{
+    text-align: left;
+    padding: 0 1rem 0 1rem !important;
+    border: 1px solid #198754 !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .popular-card{
     background-color: rgb(227, 225, 225) !important;
-    height: 200px;
-    width: 200px !important;
+    height: 10rem;
+    width: 13rem !important;
     border-radius: 1rem;
     display: flex !important;
     justify-content: center;
     align-items: center;
+    transition: 0.2s;
 }
 
-.slick-prev:before, .slick-next:before{
-    color: #8375d0 !important;
+.popular-card:hover{
+    padding: 0.5rem;
+    border: 2px solid #198754 !important;
 }
+
 
 .popular-card img{
     max-height: 90%;
     max-width: 90%;
 }
 
-.slick-prev:before, .slick-next:before{
-    font-size: 40px !important;
-}
 
 .popular-card img {
     margin: auto;
-}
-.slick-dots li button:before {
-    color: #8375d0 !important;
-    font-size: 10px !important;
-    margin-top: 1rem !important;
-}
-
-.slick-slide > div {
-    display: grid;
-    place-items: center;
 }
 
 .popular-title{
@@ -107,4 +114,24 @@
     font-size: 1.5rem;
     font-style: italic;
     font-weight: 600;
+}
+
+.slick-list{
+    padding: 0 !important;
+}
+
+.slick-list .slick-track .slick-slide{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.slick-next:before, .slick-prev:before{
+    color: green;
+}
+
+.slick-dots li button:before {
+    color: green !important;
+    font-size: 10px !important;
+    margin-top: 1rem !important;
 }

@@ -26,7 +26,7 @@ function Navbar(){
         }
     }
     return (
-        <nav className="navbar navbar-expand-lg border-bottom border-secondary">
+        <nav className="navbar navbar-expand-lg border-bottom border-secondary sticky-top bg-body">
             <div className="container-fluid">
                 <Link to='/' className="navbar-logo">
                      <span>Vision</span><span style={{color: '#2A7423 '}}>Studio</span>.

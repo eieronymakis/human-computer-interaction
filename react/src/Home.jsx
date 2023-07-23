@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import './Home.css';
 import bannerRight from './image 1.png';
 import Slider from "react-slick";
+import Header from "./Header";
 import Footer from "./Footer";
 import {Link} from "react-router-dom";
 
@@ -13,46 +14,46 @@ function Home(){
         speed: 500,
         slidesToShow: 4,
         autoplay: true,
-        autoplaySpeed: 2000
+        autoplaySpeed: 2500
     };
 
     return (
         <div className="Home">
+            <Header></Header>
             <Navbar></Navbar>
-            <div className="w-100 d-flex mt-5">
-                <div className="ms-5 left-menu">
-                    <span className="text-center menu-title">
-                        Κατηγορίες
-                    </span>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/desktops">
+            <div className="w-100">
+                <div className="menu d-flex flex-row justify-content-center align-items-center border-bottom border-secondary">
+                    <Link className="menu-item bg-transparent btn p-0" to="/desktops">
                         <i className="bi bi-pc-display"></i>
                         <span className="ms-3">Desktops</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/laptops">
+                    <Link className="menu-item bg-transparent btn p-0" to="/laptops">
                         <i className="bi bi-laptop"></i>
                         <span className="ms-3">Laptops</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/tablets">
+                    <Link className="menu-item bg-transparent btn p-0" to="/tablets">
                         <i className="bi bi-tablet-landscape"></i>
                         <span className="ms-3">Tablets</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/phones">
+                    <Link className="menu-item bg-transparent btn p-0" to="/phones">
                         <i className="bi bi-phone"></i>
                         <span className="ms-3">Κινητά</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/monitors">
-                        <i className="bi bi-tv"></i>
-                        <span className="ms-3">Οθόνες</span>
+                    <Link className="menu-item bg-transparent btn p-0" to="/consoles">
+                        <i className="bi bi-joystick"></i>
+                        <span className="ms-3">Consoles</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/networks">
+                    <Link className="menu-item bg-transparent btn p-0" to="/networks">
                         <i className="bi bi-router"></i>
                         <span className="ms-3">Δικτυακά</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/categories">
+                    <Link className="menu-item bg-transparent btn p-0" to="/categories">
                         <i className="bi bi-plus-circle"></i>
                         <span className="ms-3">Περισσότερα</span>
                     </Link>
                 </div>
+            </div>
+            <div className="w-100 d-flex mt-4 justify-content-center align-items-center">
                 <div className="banner border-light border bg-secondary">
                     <button className="mt-2 btn btn-light shadow-none right-banner-btn text-light fw-bold btn-banner">
                         Περισσότερα
@@ -69,7 +70,7 @@ function Home(){
                 </div>
             </div>
 
-            <div className="w-75 ms-auto me-5 mt-5">
+            <div className="w-75 ms-auto me-auto mt-4">
                 <span className="popular-title"> Δημοφιλή προϊόντα</span>
                 <Slider {...settings} className="mt-3">
                     <div className="popular-card bg-light">
@@ -90,7 +91,7 @@ function Home(){
                 </Slider>
             </div>
 
-            <div className="w-75 ms-auto me-5 mt-5">
+            <div className="w-75 ms-auto me-auto mt-5">
                 <span className="popular-title"> Νέα προϊόντα</span>
                 <Slider {...settings} className="mt-3">
                     <div className="popular-card bg-light">

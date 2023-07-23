@@ -70,15 +70,15 @@
     border: 0 !important;
     font-size: 1.5rem;
     text-decoration: none !important;
-    width: 180px;
+    width: 13rem;
     text-align: left !important;
     transition: 0.2s;
 }
 
 .menu-item:hover{
     text-align: left;
-    padding: 0 1rem 0 1rem !important;
-    border: 1px solid #198754 !important;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem !important;
+    border: 1px solid gray !important;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -91,11 +91,6 @@
     justify-content: center;
     align-items: center;
     transition: 0.2s;
-}
-
-.popular-card:hover{
-    padding: 0.5rem;
-    border: 2px solid #198754 !important;
 }
 
 
@@ -126,12 +121,42 @@
     align-items: center !important;
 }
 
-.slick-next:before, .slick-prev:before{
-    color: green;
+[data-bs-theme=dark] .slick-next:before, [data-bs-theme=dark] .slick-prev:before{
+    color: #ffc107;
 }
 
-.slick-dots li button:before {
-    color: green !important;
+[data-bs-theme=light] .slick-next:before, [data-bs-theme=light] .slick-prev:before{
+    color: #198754;
+}
+
+[data-bs-theme=dark] .slick-dots li button:before {
+    color: #ffc107 !important;
     font-size: 10px !important;
     margin-top: 1rem !important;
+}
+
+[data-bs-theme=light] .slick-dots li button:before {
+    color: #198754 !important;
+    font-size: 10px !important;
+    margin-top: 1rem !important;
+}
+
+[data-bs-theme=light]  .menu-item:hover i, [data-bs-theme=light]  .menu-item:hover span{
+    color: #198754
+}
+
+ .menu-item:hover i, [data-bs-theme=dark]  .menu-item:hover span{
+    color: #ffc107
+}
+
+
+[data-bs-theme=dark] .popular-card:hover{
+    padding: 0.5rem;
+    border: 4px solid #ffc107 !important;
+}
+
+
+[data-bs-theme=light] .popular-card:hover{
+    padding: 0.5rem;
+    border: 4px solid #198754 !important;
 }

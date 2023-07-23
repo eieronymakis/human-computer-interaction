@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Navbar.css';
 import { Link } from "react-router-dom";
-import {changeTheme} from './theme'
 
 function Navbar(){
+    const getStoredTheme = () => localStorage.getItem('theme')
+    const setStoredTheme = theme => localStorage.setItem('theme', theme)
+
+    useEffect(() => {
+        if (getStoredTheme() === 'dark'){
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+            document.getElementById("theme_toggler").checked = false;
+        }else{
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+            document.getElementById("theme_toggler").checked = true;
+        }
+    }, []); 
+
+    const changeTheme = () => {
+        if(getStoredTheme() === 'dark'){
+            setStoredTheme('light')
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+        }else {
+            setStoredTheme('dark')
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        }
+    }
     return (
         <nav className="navbar navbar-expand-lg border-bottom border-secondary">
             <div className="container-fluid">
@@ -24,7 +45,7 @@ function Navbar(){
 
             <div className="switch_box box_3 me-2">
 			    <div className="toggle_switch">
-                    <input type="checkbox" onChange={changeTheme}className="switch_3"/>
+                    <input id="theme_toggler" type="checkbox" onChange={changeTheme} className="switch_3"/>
                     <svg className="checkbox" xmlns="http://www.w3.org/2000/svg" style={{isolation: "isolate"}} viewBox="0 0 168 80">
                     <path className="outer-ring" d="M41.534 9h88.932c17.51 0 31.724 13.658 31.724 30.482 0 16.823-14.215 30.48-31.724 30.48H41.534c-17.51 0-31.724-13.657-31.724-30.48C9.81 22.658 24.025 9 41.534 9z" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="square" strokeMiterlimit="3"/>
                     <path className="is_checked" d="M17 39.482c0-12.694 10.306-23 23-23s23 10.306 23 23-10.306 23-23 23-23-10.306-23-23z"/>

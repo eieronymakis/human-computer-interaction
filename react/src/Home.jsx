@@ -24,29 +24,33 @@ function Home(){
                     <span className="text-center menu-title">
                         Κατηγορίες
                     </span>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/desktops">
+                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/desktops">
                         <i className="bi bi-pc-display"></i>
                         <span className="ms-3">Desktops</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/laptops">
+                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/laptops">
                         <i className="bi bi-laptop"></i>
                         <span className="ms-3">Laptops</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/tablets">
+                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/tablets">
                         <i className="bi bi-tablet-landscape"></i>
                         <span className="ms-3">Tablets</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/phones">
+                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/phones">
                         <i className="bi bi-phone"></i>
                         <span className="ms-3">Κινητά</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/monitors">
+                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/monitors">
                         <i className="bi bi-tv"></i>
                         <span className="ms-3">Οθόνες</span>
                     </Link>
-                    <Link className="menu-item mt-3 bg-transparent btn p-0" to="/networks">
+                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/networks">
                         <i className="bi bi-router"></i>
                         <span className="ms-3">Δικτυακά</span>
+                    </Link>
+                    <Link className="menu-item mt-3 bg-transparent btn p-0 intense" to="/categories">
+                        <i className="bi bi-plus-circle"></i>
+                        <span className="ms-3">Περισσότερα</span>
                     </Link>
                 </div>
                 <div className="banner border-light border bg-secondary">
@@ -66,7 +70,7 @@ function Home(){
             </div>
 
             <div className="w-75 ms-auto me-5 mt-5">
-            <span className="popular-title"> Δημοφιλή προϊόντα</span>
+                <span className="popular-title"> Δημοφιλή προϊόντα</span>
                 <Slider {...settings} className="mt-3">
                     <div className="popular-card bg-light">
                         <img alt="" src="https://www.pngmart.com/files/22/iPhone-14-Pro-Max-PNG.png"></img>

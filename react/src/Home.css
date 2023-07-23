@@ -72,13 +72,14 @@
     border: 0 !important;
     font-size: 1.2em;
     text-decoration: none !important;
-    width: 10rem;
+    width: 11rem;
     text-align: center !important;
     transition: 0.2s;
 }
 
 .menu-item:hover{
     font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .popular-card{

@@ -30,18 +30,46 @@ a{
     color: unset !important;
 }
 
-.navbar-btn{
-    width: 210px;
+.navbar-btn-login{
+    width: 14rem;
     height: 50px;
     flex-shrink: 0;
     color: #FFF;
     font-size: 1rem;
     font-weight: 700;
+    
+    display: inline-block; /* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
+    position: relative; /* All 'absolute'ly positioned elements are relative to this one */
 }
 
-.navbar-btn span{
+.navbar-btn-cart{
+  width: 8rem;
+  height: 50px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: 700;
+
+  display: inline-block; /* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
+  position: relative; /* All 'absolute'ly positioned elements are relative to this one */
+}
+
+.navbar-btn .tag{
     width: 160px;
     height: 100%;
+}
+
+.button__badge {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 1.5rem;
+  color: white;
+ 
+  padding: 0 0.5rem 0;
+  font-size: 1.2rem;
+  
+  position: absolute; /* Position the badge within the relatively positioned button */
+  top: -0.8rem;
+  right: -0.8rem;
 }
 
 .toggle_switch{
@@ -150,3 +178,4 @@ svg.checkbox .is_unchecked{
     stroke: #ffffff;
   }
 }
+

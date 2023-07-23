@@ -22,7 +22,7 @@ function Home(){
             <Header></Header>
             <Navbar></Navbar>
             <div className="w-100">
-                <div className="menu d-flex flex-row justify-content-center align-items-center border-bottom border-secondary">
+                <div className="menu d-flex flex-row justify-content-center align-items-center border-bottom border-secondary bg-body">
                     <Link className="menu-item bg-transparent btn p-0" to="/desktops">
                         <i className="bi bi-pc-display"></i>
                         <span className="ms-3">Desktops</span>
@@ -112,8 +112,10 @@ function Home(){
                 </Slider>
             </div>
 
-
-            <Footer></Footer>
+            <div style={{marginTop:"7rem"}}>
+                <Footer></Footer>
+            </div>
+    
         </div>
     )
 }

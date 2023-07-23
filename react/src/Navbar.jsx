@@ -33,14 +33,15 @@ function Navbar(){
                 </Link>
             </div>
 
-            <Link to="/login" className="text-light ms-auto btn btn-success shadow-none me-2 d-flex navbar-btn d-flex align-items-center justify-content-center ">
-                <span className="d-flex align-items-center">Σύνδεση / Εγγραφή</span>
-                <i className="fs-3 bi bi-person-circle"></i>
+            <Link to="/login" className="text-light ms-auto btn btn-success shadow-none me-2 d-flex navbar-btn-login d-flex align-items-center justify-content-center ">
+                <span className="d-flex align-items-center tag">Σύνδεση / Εγγραφή</span>
+                <i className="ms-2 fs-3 bi bi-person-circle"></i>
             </Link>
 
-            <Link to="/cart" className="text-light btn btn-warning shadow-none me-2 d-flex navbar-btn d-flex align-items-center justify-content-center">
-                <span className="d-flex align-items-center justify-content-center">Καλάθι</span>
-                <i className="fs-3 bi bi-cart"></i>
+            <Link to="/cart" className="text-light btn btn-warning shadow-none me-2 d-flex navbar-btn-cart d-flex align-items-center justify-content-center">
+                <span className="d-flex align-items-center justify-content-center tag">Καλάθι</span>
+                <i className="ms-2 fs-3 bi bi-cart"></i>
+                <span class="button__badge bg-danger">9</span>
             </Link>
 
             <div className="switch_box box_3 me-2">

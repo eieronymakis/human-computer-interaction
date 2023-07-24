@@ -27,7 +27,7 @@ function Login(){
                         <div className="text-light w-50 text-center fw-bold fs-5 ms-5 me-auto">
                             <Link to="/" className="back-btn d-flex align-items-center">
                                 <i className="bi bi-arrow-left-square-fill"></i>
-                                <span className="ms-3">Back</span>
+                                <span className="ms-3">Πίσω</span>
                             </Link>
                         </div>
 
@@ -47,7 +47,7 @@ function Login(){
                             <button className="fw-bold login-btn btn btn-success">Είσοδος</button>
                         </div>
                         <div className="mt-4 w-100 text-center">
-                            <Link to="/forgot-account" className="fw-bold forgot-account">
+                            <Link to="/forgot-account" className="fst-italic fw-bold forgot-account">
                                 Ξεχάσατε τα στοιχεία εισόδου ;
                             </Link>
                         </div>

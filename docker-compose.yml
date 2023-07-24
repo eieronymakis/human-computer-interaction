@@ -1,0 +1,51 @@
+version: '3'
+services:
+  frontend:
+    build: ./react
+    container_name: react
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./react:/app
+      - /app/node_modules
+    networks:
+      net0:
+        ipv4_address: 172.20.0.5
+
+  backend:
+    build: ./node
+    container_name: node
+    ports:
+      - "3005:3000"
+    volumes:
+      - ./node:/app
+      - /app/node_modules
+    networks:
+      net0:
+        ipv4_address: 172.20.0.6
+
+  db:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=xyz123"
+    networks:
+      net0:
+        ipv4_address: 172.20.0.7
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+    name: mysql_volume
+  
+networks:
+  net0:
+    driver : bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

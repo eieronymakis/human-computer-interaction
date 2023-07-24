@@ -9,7 +9,7 @@ function ChatWidget(){
             customClass: 'popOverClass1',
             trigger: 'click',
             placement: 'top',
-            offset: [-100, 20],
+            offset: [-100, 10],
             html: true,
             delay: {
                 "show": 50,

@@ -1,11 +1,10 @@
 .popOverClass1{
     width: 25rem !important;
     height: 25rem !important;
-    right: 5rem !important;
 }
 
 .popover{
-    border-radius: 2rem !important;
+    border-radius: 1rem !important;
     display: flex !important;
     flex-direction: column !important;
 }

@@ -41,7 +41,7 @@ function Navbar(){
             <Link to="/cart" className="text-light btn btn-warning shadow-none me-2 d-flex navbar-btn-cart d-flex align-items-center justify-content-center">
                 <span className="d-flex align-items-center justify-content-center tag">Καλάθι</span>
                 <i className="ms-2 fs-3 bi bi-cart"></i>
-                <span class="button__badge bg-danger">9</span>
+                <span className="button__badge bg-danger">9</span>
             </Link>
 
             <div className="switch_box box_3 me-2">

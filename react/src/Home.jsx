@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import Header from "./Header";
 import Footer from "./Footer";
 import {Link} from "react-router-dom";
+import ChatWidget from "./ChatWidget";
 
 function Home(){
     var settings = {
@@ -14,13 +15,14 @@ function Home(){
         speed: 500,
         slidesToShow: 4,
         autoplay: true,
-        autoplaySpeed: 2500
+        autoplaySpeed: 2000
     };
 
     return (
         <div className="Home">
             <Header></Header>
             <Navbar></Navbar>
+            <ChatWidget></ChatWidget>
             <div className="w-100">
                 <div className="menu d-flex flex-row justify-content-center align-items-center border-bottom border-secondary bg-body">
                     <Link className="menu-item bg-transparent btn p-0" to="/desktops">
@@ -35,15 +37,15 @@ function Home(){
                         <i className="bi bi-tablet-landscape"></i>
                         <span className="ms-3">Tablets</span>
                     </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/phones">
-                        <i className="bi bi-phone"></i>
-                        <span className="ms-3">Κινητά</span>
+                    <Link className="menu-item bg-transparent btn p-0" to="/hardware">
+                        <i className="bi bi-cpu"></i>
+                        <span className="ms-3">Hardware</span>
                     </Link>
                     <Link className="menu-item bg-transparent btn p-0" to="/consoles">
-                        <i className="bi bi-joystick"></i>
-                        <span className="ms-3">Consoles</span>
+                        <i className="bi bi-keyboard"></i>
+                        <span className="ms-3">Περιφερειακά</span>
                     </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/networks">
+                    <Link className="menu-item bg-transparent btn p-0" to="/networking">
                         <i className="bi bi-router"></i>
                         <span className="ms-3">Δικτυακά</span>
                     </Link>
@@ -70,25 +72,54 @@ function Home(){
                 </div>
             </div>
 
-            <div className="w-75 ms-auto me-auto mt-4">
+            <div className="w-75 ms-auto me-auto mt-5">
                 <span className="popular-title"> Δημοφιλή προϊόντα</span>
                 <Slider {...settings} className="mt-3">
                     <div className="popular-card bg-light">
-                        <img alt="" src="https://www.pngmart.com/files/22/iPhone-14-Pro-Max-PNG.png"></img>
+                        <img alt="" src="https://static.skyassets.com/contentstack/assets/blt143e20b03d72047e/blt8937265d6aa0575b/622a7dd8eda9a1043584adcb/Carousel_iPad_Blue_Placement02.png"></img>
                     </div>
                     <div className="popular-card bg-light">
                         <img alt="" src="https://images.macrumors.com/t/Au-OUIb73hHvx2w8CirAir5bNbM=/1600x/article-new/2013/09/macbook-air-m2-roundup-header.png"></img>
                     </div>
                     <div className="popular-card bg-light">
-                        <img alt="" src="https://www.pngall.com/wp-content/uploads/13/Galaxy-S23-Ultra-PNG-Clipart.webp"></img>
+                        <img alt="" src="https://a-power.com/app/uploads/2019/09/5879186_5812260896-600x974.png"></img>
                     </div>
                     <div className="popular-card bg-light">
-                        <img alt="" src="https://www.freepnglogos.com/uploads/airpods-png/airpods-pro-airpods-what-the-difference-and-10.png"></img>
+                        <img alt="" src="https://dlcdnwebimgs.asus.com/gain/EFF9D6D8-2F6C-4E76-989F-E5DB594052BA/w717/h525"></img>
                     </div>
                     <div className="popular-card bg-light">
                         <img alt="" src="https://dlcdnwebimgs.asus.com/gain/E0E15911-885A-421B-A775-5E1854731699"></img>
                     </div>
                 </Slider>
+            </div>
+            <div className="w-75 ms-auto me-auto categories-title">
+                <span className="popular-title">Ψάξτε ανά κατηγορία</span>
+            </div>
+            <div className="w-75 ms-auto me-auto home-categories">
+                <Link to="/monitors" className="category-card d-flex align-items-center justify-content-center flex-column">
+                    <img alt="" src="https://images.samsung.com/is/image/samsung/p6pim/no/ls32ag320nuxen/gallery/no-odyssey-g3-g32a-ls32ag320nuxen-531086442?$650_519_PNG$"></img>
+                    <span className="text-align-center">Οθόνες</span>
+                </Link>
+                <Link to="/tablets" className="category-card d-flex align-items-center justify-content-center flex-column">
+                    <img alt="" src="https://www.custommacbd.com/cdn/shop/products/ipad-pro-12-select-202104_4bda6238-716d-4a43-997c-bf0caa926e30.png?v=1662195591"></img>
+                    <span className="text-align-center">Tablets</span>
+                </Link>
+                <Link to="/peripherals" className="category-card d-flex align-items-center justify-content-center flex-column">
+                    <img alt="" src="https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight/pro-x-superlight-black-gallery-1.png?v=1"></img>
+                    <span className="text-align-center">Περιφερειακά</span>
+                </Link>
+                <Link to="/laptops" className="category-card d-flex align-items-center justify-content-center flex-column">
+                    <img alt="" src="https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MzgxMTU4fGltYWdlL3BuZ3xoMDMvaGM5LzE0MzIyOTk4OTAyODE0LnBuZ3xkNTExOTkzODA2NzViZGQwOTY1NDg5NDkzMWViYTFiYjMwMTk5ZWQyM2M5MDg5YzkwOTUwZDdhMjI3NGRiOGM2/lenovo-laptop-thinkpad-l15-intel-hero.png"></img>
+                    <span className="text-align-center">Laptops</span>
+                </Link>
+                <Link to="/desktops" className="category-card d-flex align-items-center justify-content-center flex-column">
+                    <img alt="" src="https://benson.ph/cdn/shop/products/T440d8.webp?v=1660708548"></img>
+                    <span className="text-align-center">Desktops & Servers</span>
+                </Link>
+                <Link to="/networking" className="category-card d-flex align-items-center justify-content-center flex-column">
+                    <img alt="" src="https://cdn.connectec.uk/uploads/products/U6-LR1.png?scale.height=1000&canvas.height=1000&scale.width=1200&canvas.width=1200&canvas.opacity=0&crop.type=trim&crop.pad.x=5%&crop.pad.y=5%"></img>
+                    <span className="text-align-center">Δικτυακά</span>
+                </Link>            
             </div>
 
             <div className="w-75 ms-auto me-auto mt-5">
@@ -107,7 +138,7 @@ function Home(){
                         <img alt="" src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Alienware_x14_3.png"></img>
                     </div>
                     <div className="popular-card bg-light">
-                        <img alt="" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f0e13eb8-4db6-4a3e-97ea-918a4dce742b/deb2976-e88ef583-9b52-4035-a879-b0cdfb76c084.png/v1/fill/w_723,h_720/ps5_disc_edition_box__united_states___png__by_regularshowfan2005_deb2976-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvZjBlMTNlYjgtNGRiNi00YTNlLTk3ZWEtOTE4YTRkY2U3NDJiXC9kZWIyOTc2LWU4OGVmNTgzLTliNTItNDAzNS1hODc5LWIwY2RmYjc2YzA4NC5wbmciLCJ3aWR0aCI6Ijw9NzIzIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.3gTn415DLTV7u9SGvVsTSENm66639jafTSDK2EALePA"></img>
+                        <img alt="" src="https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MjI2NDY5fGltYWdlL3BuZ3xoMDEvaGQxLzE0MDgwNDg0ODY4MTI2LnBuZ3xjZTM1YWNmODQxYWQyNDdjYzEyOTFkNTE1NmIwMjBkMGY0MDBjODY0ODgyNjAxNDA2NDQxYjMwYzc1MDBjZjAy/lenovo-laptop-thinkpad-x1-nano-13-hero.png"></img>
                     </div>
                 </Slider>
             </div>

@@ -1,0 +1,97 @@
+.popOverClass1{
+    width: 25rem !important;
+    height: 25rem !important;
+    right: 5rem !important;
+}
+
+.popover{
+    border-radius: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+.popover .title{
+    height: 2rem;
+    width: 100% !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.popover .message{
+    width: 90%;
+    height: 10rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+[data-bs-theme=dark] .popover .message::placeholder{
+    color: white;
+}
+
+.popover .message::placeholder{
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.popover .message{
+    resize: none;
+}
+.popover .message:focus-visible{
+    outline: 0;
+}
+
+.popover .email:focus-visible{
+    outline: 0;
+}
+
+.popover .email{
+    width: 90%;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.popover .send{
+    width: 8rem;
+    height: 2rem;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    border: 0;
+    border-radius: 1rem;
+}
+
+.chat-widget-container{
+    margin-bottom: 3rem;
+    height: 2rem;
+}
+.chat-widget{
+    border: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    width: 1rem;
+    padding: 0.5rem 4rem 0.5rem !important;
+    border-radius: 5rem;
+    transition: 0.5s;
+}
+
+[data-bs-theme=light] .chat-widget{
+    background: rgba(25,135,84, .7);
+}
+
+[data-bs-theme=dark] .chat-widget{
+    background: rgba(255, 193, 7, .7);
+}
+
+[data-bs-theme=light] .chat-widget:hover{
+    background: rgba(25,135,84, 1);
+}
+
+
+[data-bs-theme=dark] .chat-widget:hover{
+    background: rgba(255, 193, 7, 1);
+}

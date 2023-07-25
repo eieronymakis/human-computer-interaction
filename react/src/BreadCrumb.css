@@ -1,0 +1,20 @@
+.MuiChip-icon{
+    color: white !important;
+}
+
+.MuiChip-label{
+    color: white !important;
+    font-weight: bold;
+}
+
+[data-bs-theme=light] .MuiButtonBase-root,[data-bs-theme=light] .MuiChip-root{
+    background: rgba(25,135,84, .7);
+}
+
+[data-bs-theme=dark] .MuiButtonBase-root,[data-bs-theme=dark] .MuiChip-root{
+    background: rgba(255, 193, 7, .7);
+}
+
+[data-bs-theme=dark] .MuiBreadcrumbs-separator{
+    color: white !important;
+}

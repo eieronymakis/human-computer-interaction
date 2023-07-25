@@ -7,6 +7,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {Link} from "react-router-dom";
 import ChatWidget from "./ChatWidget";
+import BreadCrumb from "./BreadCrumb";
+import CategoryNav from "./CategoryNav";
 
 function Home(){
     var settings = {
@@ -22,39 +24,9 @@ function Home(){
         <div className="Home">
             <Header></Header>
             <Navbar></Navbar>
+            <CategoryNav></CategoryNav>
             <ChatWidget></ChatWidget>
-            <div className="w-100">
-                <div className="menu d-flex flex-row justify-content-center align-items-center border-bottom border-secondary bg-body">
-                    <Link className="menu-item bg-transparent btn p-0" to="/desktops">
-                        <i className="bi bi-pc-display"></i>
-                        <span className="ms-3">Desktops</span>
-                    </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/laptops">
-                        <i className="bi bi-laptop"></i>
-                        <span className="ms-3">Laptops</span>
-                    </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/tablets">
-                        <i className="bi bi-tablet-landscape"></i>
-                        <span className="ms-3">Tablets</span>
-                    </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/hardware">
-                        <i className="bi bi-cpu"></i>
-                        <span className="ms-3">Hardware</span>
-                    </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/consoles">
-                        <i className="bi bi-keyboard"></i>
-                        <span className="ms-3">Περιφερειακά</span>
-                    </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/networking">
-                        <i className="bi bi-router"></i>
-                        <span className="ms-3">Δικτυακά</span>
-                    </Link>
-                    <Link className="menu-item bg-transparent btn p-0" to="/categories">
-                        <i className="bi bi-plus-circle"></i>
-                        <span className="ms-3">Περισσότερα</span>
-                    </Link>
-                </div>
-            </div>
+            <BreadCrumb></BreadCrumb>
             <div className="w-100 d-flex mt-4 justify-content-center align-items-center">
                 <div className="banner border-light border bg-secondary">
                     <button className="mt-2 btn btn-light shadow-none right-banner-btn text-light fw-bold btn-banner">

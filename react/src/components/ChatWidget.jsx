@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import './ChatWidget.css';
 import { Popover } from "bootstrap";
+
+import '../assets/styles/ChatWidget.css';
 
 function ChatWidget(){
     const popoverRef = useRef();

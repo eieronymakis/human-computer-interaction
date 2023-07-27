@@ -1,6 +1,7 @@
 import React from "react";
-import './CategoryNav.css';
 import { Link } from "react-router-dom";
+
+import '../assets/styles/CategoryNav.css';
 
 function CategoryNav(){
     return(

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
-import Breadcrumb from "./BreadCrumb";
-import CategoryNav from "./CategoryNav";
-import Footer from "./Footer";
-import './Product.css';
+
+import Navbar from "../components/Navbar";
+import Breadcrumb from "../components/BreadCrumb";
+import CategoryNav from "../components/CategoryNav";
+import Footer from "../components/Footer";
+
+import '../assets/styles/Product.css';
 
 function Product(){
 
@@ -22,7 +24,7 @@ function Product(){
             <div className="mt-4 d-flex ms-auto me-auto product-container">
                 <div className="left h-100 d-flex justify-content-end">
                     <div className="product-card d-flex justify-content-center align-items-center border border-3">
-                        <img src="https://static0.xdaimages.com/wordpress/wp-content/uploads/2023/02/macbook-air-m2-1.png"></img>
+                        <img alt="" src="https://static0.xdaimages.com/wordpress/wp-content/uploads/2023/02/macbook-air-m2-1.png"></img>
                     </div>
                 </div>
                 <div className="right h-100">

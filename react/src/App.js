@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './Home'
-import Login from "./Login";
-import Procuct from "./Product";
+import Home from "./routes/Home";
+import Product from "./routes/Product";
+import Login from "./routes/Login";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />}>
         </Route>
-        <Route path="/product" element={<Procuct/>}>
+        <Route path="/product" element={<Product/>}>
         </Route>
       </Routes>
     </BrowserRouter>

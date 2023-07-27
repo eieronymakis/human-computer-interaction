@@ -1,8 +1,9 @@
 import React from "react";
-import Navbar from "./Navbar";
-import './Login.css';
 import { Link } from "react-router-dom";
-import image from './image 5.png'
+import Navbar from "../components/Navbar";
+
+import '../assets/styles/Login.css';
+import image from '../assets/images/image 5.png'
 
 function Login(){
     return(

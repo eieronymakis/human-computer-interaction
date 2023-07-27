@@ -14,7 +14,8 @@ function Product(){
         setNum (num+1);   
     }
     const CounterD = () => {
-        setNum (num-1);
+        if(num > 0)
+            setNum (num-1);
     }
     return(
         <div className="product">
@@ -85,7 +86,7 @@ function Product(){
             </div>
             <div className="mt-2 product-separator ms-auto me-auto border-bottom border-2"></div>    
 
-            <div className="mt-5 similar-products-container ms-auto me-auto">
+            <div className="mt-5 similar-products-container ms-auto me-auto" style={{marginBottom:'6rem'}}>
                 <div className="fs-5">ΣΧΕΤΙΚΑ ΠΡΟΪΟΝΤΑ</div>
                 <div className="similar-products-grid d-flex flex-row justify-content-between align-items-center">
                     <div className="similar-products-card d-flex align-items-center justify-content-center flex-column">

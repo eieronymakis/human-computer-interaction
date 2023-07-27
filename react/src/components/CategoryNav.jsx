@@ -5,13 +5,13 @@ import '../assets/styles/CategoryNav.css';
 
 function CategoryNav(){
     return(
-        <div className="w-100">
+        <div className="w-100 category-nav">
             <div className="menu d-flex flex-row justify-content-center align-items-center border-bottom border-secondary bg-body">
                 <Link className="menu-item bg-transparent btn p-0" to="/desktops">
                     <i className="bi bi-pc-display"></i>
                     <span className="ms-3">Desktops</span>
                 </Link>
-                <Link className="menu-item bg-transparent btn p-0" to="/laptops">
+                <Link className="menu-item bg-transparent btn p-0" to="/category/laptops">
                     <i className="bi bi-laptop"></i>
                     <span className="ms-3">Laptops</span>
                 </Link>

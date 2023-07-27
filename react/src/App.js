@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Product from "./routes/Product";
 import Login from "./routes/Login";
+import Category from "./routes/Category";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/login" element={<Login />}>
         </Route>
         <Route path="/product" element={<Product/>}>
+        </Route>
+        <Route path="/category/:categoryId" element={<Category/>}>
         </Route>
       </Routes>
     </BrowserRouter>

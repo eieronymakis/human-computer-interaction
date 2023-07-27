@@ -9,7 +9,7 @@ export default function ProductCarousel(props) {
 
     if(props.products){
         nodes = props.products.map(product => 
-            <div className="product-carousel-product-card">
+            <div key={product.img} className="product-carousel-product-card">
                 <img alt="" src={product.img}></img>
             </div>
         )
@@ -21,19 +21,19 @@ export default function ProductCarousel(props) {
         speed: 500,
         slidesToShow: 4,
         arrows: false,
-        // autoplay: true,
-        // autoplaySpeed: 2000
+        autoplay: true,
+        autoplaySpeed: 2000
     };
 
     return(
         <div className="w-100 mt-5">                
             <span className="product-carousel-title"> Δημοφιλή προϊόντα</span>
             <div className="w-100 d-flex justify-content-center align-items-center">
-                <button className="text-light btn slick-btn me-3" onClick={()=>sliderRef?.current?.slickPrev()}><i class="bi bi-arrow-left"></i></button>   
+                <button className="text-light btn slick-btn me-3" onClick={()=>sliderRef?.current?.slickPrev()}><i className="bi bi-arrow-left"></i></button>   
                 <Slider ref={sliderRef} {...settings} className="mt-3 w-75">
                     {nodes}
                 </Slider>
-                <button className="text-light btn slick-btn ms-3" onClick={()=>sliderRef?.current?.slickNext()}><i class="bi bi-arrow-right"></i></button>
+                <button className="text-light btn slick-btn ms-3" onClick={()=>sliderRef?.current?.slickNext()}><i className="bi bi-arrow-right"></i></button>
             </div>
         </div>
     )

@@ -1,0 +1,122 @@
+.category-container{
+    width: 90%;
+    height: 55rem;
+}
+
+.category-search-bar{
+    width: 60%;
+    border-radius: 0.5rem;
+    height: 3rem;
+    background-color: white;
+}
+
+.search-bar-text{
+    text-align: center;
+    font-size: 1.5rem;
+    background: none;
+    border: 0;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.category-left-sidebar-tag{
+    font-size: 1.2rem;
+}
+
+.category-left-sidebar .collapse label{
+    font-size: 1rem;
+}
+
+
+.search-bar-text:focus{
+    border: 0;
+    outline: 0;
+}
+
+.search-bar-btn{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;    
+    width: 8rem;
+    height: 100%;
+    background: green;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+
+.search-bar-btn i{
+    -webkit-text-stroke-width: 0.2rem;
+}
+
+.category-left-sidebar{
+    width: 25% !important;
+    height: 40rem;
+}
+
+.right{
+    width: 70%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 0.5rem;
+
+}
+
+.grid-item{
+    border-radius: 0.5rem;
+    background-color: rgb(227, 225, 225);
+    justify-content: flex-end !important;
+    transition: 0.2s;
+}
+
+
+[data-bs-theme=dark] .grid-item{
+    background-color: rgb(50, 50, 50);
+    color: white !important;
+}
+
+.grid-item span{
+    margin-top: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    font-weight: bold;
+}
+
+.grid-item img{
+    max-width: 80%;
+    max-height: 80%;
+    transition: 0.2s;
+}
+
+.grid-item:hover img{
+    transform: scale(0.9);
+}
+
+.category-type-amount{
+    text-align: center;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    width: 3rem;
+    color: white;
+}
+
+[data-bs-theme=light] .grid-item:hover span{
+    color: #198754;
+}
+
+[data-bs-theme=dark] .grid-item:hover span{
+    color: #ffc107;
+}
+
+[data-bs-theme=light] .category-type-amount{
+    background: rgba(25,135,84, .6);
+}
+
+[data-bs-theme=dark] .category-type-amount{
+    background: rgba(255, 193, 7, .6);
+}

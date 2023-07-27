@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ChatWidget from "../components/ChatWidget";
 import BreadCrumb from "../components/BreadCrumb";
 import CategoryNav from "../components/CategoryNav";
 import ProductCarousel from "../components/ProductCarousel";
@@ -19,7 +18,6 @@ function Home(){
             <Header/>
             <Navbar/>
             <CategoryNav/>
-            <ChatWidget/>
             <BreadCrumb/>
             <div className="w-100 d-flex mt-4 justify-content-center align-items-center">
                 <div className="banner border-light border bg-secondary">
@@ -47,7 +45,7 @@ function Home(){
                 ]
             }/>
             <div className="w-75 ms-auto me-auto categories-title">
-                <span className="popular-title">Ψάξτε ανά κατηγορία</span>
+                <span className="home-categories-title">Ψάξτε ανά κατηγορία</span>
             </div>
             <div className="w-75 ms-auto me-auto home-categories">
                 <Link to="/monitors" className="category-card d-flex align-items-center justify-content-center flex-column">

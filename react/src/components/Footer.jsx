@@ -5,7 +5,7 @@ import '../assets/styles/Footer.css';
 
 function Footer() {
 	return (
-		<footer className="footer-distributed border-top mt-5">
+		<footer className="footer-distributed border-top">
 			<div className="footer-left">
 				<h3>Vision<span>Studio</span>.</h3>
 				<p className="footer-company-name">VisionStudio © 2023</p>

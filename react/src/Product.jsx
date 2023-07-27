@@ -31,7 +31,7 @@ function Product(){
                     </div>
                     <div className="ms-5 mt-3 product-rating fs-5 d-flex border border-2 justify-content-center">
                         <div className="fw-bold">Βαθμολογία</div>
-                        <i class="text-warning ms-2 bi bi-star-fill me-2"></i>
+                        <i className="text-warning ms-2 bi bi-star-fill me-2"></i>
                         <div className="fw-bold me-2">: </div>5
                     </div>
                     <div className="ms-5 mt-2 fs-2 text-success product-price fw-bold">
@@ -69,6 +69,38 @@ function Product(){
                     <div className="ms-5 fst-italic mt-4 product-utils d-flex flex-column">
                         <span>Κωδικός προιόντος: 1223</span>
                         <span>κατηγορία: Ρολόι, Οθόνη Αφής</span>
+                    </div>
+                </div>
+            </div>
+            <div className="mt-5 product-options ms-auto me-auto d-flex justify-content-center align-items-center">
+                <div className="me-5 text-success fw-bold">ΠΕΡΙΓΡΑΦΗ</div>
+                <div className="me-5">ΕΠΙΠΛΕΟΝ ΠΛΗΡΟΦΟΡΙΕΣ</div>
+                <div className="">ΑΞΙΟΛΟΓΗΣΕΙΣ (2)</div>
+            </div>
+            <div className="product-separator mt-3 ms-auto me-auto border-bottom border-2"></div>
+            <div className="product-options ms-auto me-auto mt-3 mb-3">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In ipsam ex commodi cum voluptates eveniet hic a sed perspiciatis sit labore error culpa nostrum autem, facere rem dolores, eius fugit?
+            </div>
+            <div className="mt-2 product-separator ms-auto me-auto border-bottom border-2"></div>    
+
+            <div className="mt-5 similar-products-container ms-auto me-auto">
+                <div className="fs-5">ΣΧΕΤΙΚΑ ΠΡΟΪΟΝΤΑ</div>
+                <div className="similar-products-grid d-flex flex-row justify-content-between align-items-center">
+                    <div className="similar-products-card d-flex align-items-center justify-content-center flex-column">
+                        <img alt="" src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9530/media-gallery/touch-black/notebook-xps-15-9530-t-black-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=654&qlt=100,1&resMode=sharp2&size=654,402&chrss=full"></img>
+                        <span>Dell XPS 15</span>
+                    </div>
+                    <div className="similar-products-card d-flex align-items-center justify-content-center flex-column">
+                        <img alt="" src="https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8ODQ4NDd8aW1hZ2UvcG5nfGgyMi9oOGYvMTA2NzQ1ODc3Mjk5NTAucG5nfDQzODYxOTc5ODA0MWJhZTQyYThjOTAzZjE0NDI2NWVjYjY5MjE3MGFiMWEzODhlN2UyMGUwNGZhMWRmOTJmNzg/lenovo-laptop-thinkpad-x1-carbon-gen8-subseries-hero.png"></img>
+                        <span>Lenovo Thinkpad X1 Carbon</span>
+                    </div>
+                    <div className="similar-products-card d-flex align-items-center justify-content-center flex-column">
+                        <img alt="" src="https://custombeastbuilder.com/wp-content/uploads/2023/06/My-project-19.png"></img>
+                        <span>Asus ROG Zephyrus G14</span>
+                    </div>
+                    <div className="similar-products-card d-flex align-items-center justify-content-center flex-column">
+                        <img alt="" src="https://www.omen.com/content/dam/sites/omen/worldwide/laptops/omen-15-laptop/2-0/starmade-15-50-w-numpad-4-zone-oled-shadow-black-nt-h-dcam-non-odd-non-fpr-freedos-core-set-front-right-copy.png"></img>
+                        <span>HP Omen 15</span>
                     </div>
                 </div>
             </div>

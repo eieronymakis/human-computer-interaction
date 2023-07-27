@@ -16,7 +16,7 @@ export default function CustomizedBreadcrumbs(props) {
     let nodes = ""
     if(props.items){
         nodes = props.items.map(item => 
-            <StyledBreadcrumb
+            <StyledBreadcrumb key={item.path}
                 component={Link}
                 to={item.path}
                 label={item.label}
@@ -25,7 +25,7 @@ export default function CustomizedBreadcrumbs(props) {
     return (
     <div className="mt-3 w-100 d-flex justify-content-center">
         <div role="presentation">
-            <Breadcrumbs separator={<i class="fs-3 bi bi-arrow-right-short"></i>} aria-label="breadcrumb">
+            <Breadcrumbs separator={<i className="fs-3 bi bi-arrow-right-short"></i>} aria-label="breadcrumb">
                 <StyledBreadcrumb
                     component={Link}
                     to="/"

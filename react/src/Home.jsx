@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import Navbar from "./Navbar";
 import './Home.css';
 import bannerRight from './image 1.png';
@@ -11,13 +11,18 @@ import BreadCrumb from "./BreadCrumb";
 import CategoryNav from "./CategoryNav";
 
 function Home(){
+
+    const sliderRef = useRef();
+    const sliderRef2 = useRef();
+
     var settings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        autoplay: true,
-        autoplaySpeed: 2000
+        arrows: false,
+        // autoplay: true,
+        // autoplaySpeed: 2000
     };
 
     return (
@@ -44,26 +49,31 @@ function Home(){
                 </div>
             </div>
 
-            <div className="w-75 ms-auto me-auto mt-5">
+            <div className="popular-products-container ms-auto me-auto mt-5">
                 <span className="popular-title"> Δημοφιλή προϊόντα</span>
-                <Slider {...settings} className="mt-3">
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://static.skyassets.com/contentstack/assets/blt143e20b03d72047e/blt8937265d6aa0575b/622a7dd8eda9a1043584adcb/Carousel_iPad_Blue_Placement02.png"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://images.macrumors.com/t/Au-OUIb73hHvx2w8CirAir5bNbM=/1600x/article-new/2013/09/macbook-air-m2-roundup-header.png"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://a-power.com/app/uploads/2019/09/5879186_5812260896-600x974.png"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://dlcdnwebimgs.asus.com/gain/EFF9D6D8-2F6C-4E76-989F-E5DB594052BA/w717/h525"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://dlcdnwebimgs.asus.com/gain/E0E15911-885A-421B-A775-5E1854731699"></img>
-                    </div>
-                </Slider>
+                <div className="w-100 d-flex justify-content-center align-items-center">
+                    <button className="text-light btn slick-btn me-3" onClick={()=>sliderRef?.current?.slickPrev()}><i class="bi bi-arrow-left"></i></button>   
+                    <Slider ref={sliderRef} {...settings} className="mt-3 w-75">
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://static.skyassets.com/contentstack/assets/blt143e20b03d72047e/blt8937265d6aa0575b/622a7dd8eda9a1043584adcb/Carousel_iPad_Blue_Placement02.png"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://images.macrumors.com/t/Au-OUIb73hHvx2w8CirAir5bNbM=/1600x/article-new/2013/09/macbook-air-m2-roundup-header.png"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://a-power.com/app/uploads/2019/09/5879186_5812260896-600x974.png"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://dlcdnwebimgs.asus.com/gain/EFF9D6D8-2F6C-4E76-989F-E5DB594052BA/w717/h525"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://dlcdnwebimgs.asus.com/gain/E0E15911-885A-421B-A775-5E1854731699"></img>
+                        </div>
+                    </Slider>
+                    <button className="text-light btn slick-btn ms-3" onClick={()=>sliderRef?.current?.slickNext()}><i class="bi bi-arrow-right"></i></button>
+                </div>
             </div>
+
             <div className="w-75 ms-auto me-auto categories-title">
                 <span className="popular-title">Ψάξτε ανά κατηγορία</span>
             </div>
@@ -94,25 +104,29 @@ function Home(){
                 </Link>            
             </div>
 
-            <div className="w-75 ms-auto me-auto mt-5">
+            <div className="popular-products-container ms-auto me-auto mt-5">
                 <span className="popular-title"> Νέα προϊόντα</span>
-                <Slider {...settings} className="mt-3">
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://www.in-win.com/uploads/Product/gaming-chassis/d-frame-2/d-frame2_overview_options_02.png"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://asset.msi.com/resize/image/global/product/product_1665552671c76199be0956de9b63d7e35b33b91acb.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://shop.asisnet.gr/wp-content/uploads/2022/06/DELL-Server-PowerEdge-R550-2U.png"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Alienware_x14_3.png"></img>
-                    </div>
-                    <div className="popular-card bg-light">
-                        <img alt="" src="https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MjI2NDY5fGltYWdlL3BuZ3xoMDEvaGQxLzE0MDgwNDg0ODY4MTI2LnBuZ3xjZTM1YWNmODQxYWQyNDdjYzEyOTFkNTE1NmIwMjBkMGY0MDBjODY0ODgyNjAxNDA2NDQxYjMwYzc1MDBjZjAy/lenovo-laptop-thinkpad-x1-nano-13-hero.png"></img>
-                    </div>
-                </Slider>
+                <div className="w-100 d-flex justify-content-center align-items-center">
+                    <button className="text-light btn slick-btn me-3" onClick={()=>sliderRef2?.current?.slickPrev()}><i class="bi bi-arrow-left"></i></button>   
+                    <Slider ref={sliderRef2} {...settings} className="mt-3 w-75">
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://www.in-win.com/uploads/Product/gaming-chassis/d-frame-2/d-frame2_overview_options_02.png"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://asset.msi.com/resize/image/global/product/product_1665552671c76199be0956de9b63d7e35b33b91acb.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://shop.asisnet.gr/wp-content/uploads/2022/06/DELL-Server-PowerEdge-R550-2U.png"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Alienware_x14_3.png"></img>
+                        </div>
+                        <div className="popular-card bg-light">
+                            <img alt="" src="https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MjI2NDY5fGltYWdlL3BuZ3xoMDEvaGQxLzE0MDgwNDg0ODY4MTI2LnBuZ3xjZTM1YWNmODQxYWQyNDdjYzEyOTFkNTE1NmIwMjBkMGY0MDBjODY0ODgyNjAxNDA2NDQxYjMwYzc1MDBjZjAy/lenovo-laptop-thinkpad-x1-nano-13-hero.png"></img>
+                        </div>
+                    </Slider>
+                    <button className="text-light btn slick-btn ms-3" onClick={()=>sliderRef2?.current?.slickNext()}><i class="bi bi-arrow-right"></i></button>
+                </div>
             </div>
 
             <div style={{marginTop:"7rem"}}>

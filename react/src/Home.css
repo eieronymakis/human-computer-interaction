@@ -90,6 +90,24 @@
     background-color: #8375d0;
 }
 
+.slick-btn{
+    -webkit-text-stroke-width: 0.1rem;
+    width: 3rem;
+    height: 3rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+[data-bs-theme=light] .slick-btn{
+    background: rgba(25,135,84, .7);
+}
+
+[data-bs-theme=dark] .slick-btn{
+    background: rgba(255, 193, 7, .7);
+}
+
+.popular-products-container{
+    width: 100%;
+}
 
 .popular-card{
     background-color: rgb(227, 225, 225) !important;
@@ -102,19 +120,17 @@
     transition: 0.2s;
 }
 
-
 .popular-card img{
     max-height: 90%;
     max-width: 90%;
 }
-
 
 .popular-card img {
     margin: auto;
 }
 
 .popular-title{
-    margin-left: 1.5rem;
+    margin-left: 11rem;
     font-size: 1.5rem;
     font-style: italic;
     font-weight: 600;

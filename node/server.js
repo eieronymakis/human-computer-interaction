@@ -1,6 +1,15 @@
 const express = require('express');
 const app = express();
 
+const mysql = require('mysql2');
+
+const connection = mysql.createConnection({
+  host: '172.20.0.7',
+  user: 'root',
+  password: 'xyz123',
+  database: 'visionstudio',
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 
@@ -13,8 +22,19 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain)
 
-// app.use('/auth', require('./routes/auth'));
-// app.use('/products', require('./routes/products'));
+
+app.get('/products/laptops', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products WHERE category = "laptops"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
 
 app.get('/', (req, res) => {
   res.send({ message: 'Message From Express Backend!' });

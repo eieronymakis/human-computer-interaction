@@ -11,7 +11,7 @@ function CategoryNav(){
                     <i className="bi bi-pc-display"></i>
                     <span className="ms-3">Desktops</span>
                 </Link>
-                <Link className="menu-item bg-transparent btn p-0" to="/category/laptops">
+                <Link className="menu-item bg-transparent btn p-0" to="/categories/laptops">
                     <i className="bi bi-laptop"></i>
                     <span className="ms-3">Laptops</span>
                 </Link>

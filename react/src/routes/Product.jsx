@@ -21,7 +21,7 @@ function Product(){
         <div className="product">
             <Navbar></Navbar>
             <CategoryNav></CategoryNav>
-            <Breadcrumb items={[{"path":"/products", "label":"Products"}, {"path":"/here","label":"Macbook Air M2"}]}></Breadcrumb>
+            <Breadcrumb items={[{"path":"/categories", "label":"Κατηγορίες"}, {"path":"/categories/laptops", "label":"Laptops"}, {"path":"#","label":"Macbook Air M2"}]}></Breadcrumb>
             <div className="mt-4 d-flex ms-auto me-auto product-container">
                 <div className="left h-100 d-flex justify-content-end">
                     <div className="product-card d-flex justify-content-center align-items-center border border-3">

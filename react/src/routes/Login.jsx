@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import BreadCrumb from '../components/BreadCrumb';
+import Footer from '../components/Footer';
 
 import '../assets/styles/Login.css';
 import image from '../assets/images/image 5.png'
 
 function Login(){
+
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    
+    const handleChangeEmail = (event) => {
+        setEmail(event.target.value);
+    };
+    const handleChangePassword = (event) => {
+        setPassword(event.target.value);
+    };
+    const handleLogin = async () => {
+        console.log(email+password)
+    }
+
     return(
         <div className="login">
             <Navbar></Navbar>
+            <BreadCrumb                 
+                items={[{"path":"/login","label":"Σύνδεση"}]}>
+            </BreadCrumb>
             <div className="ms-auto me-auto mt-3 login-container d-flex">
                 <div className="left">
                         <img className="image-hover" alt="" src={image}></img>
@@ -39,13 +58,13 @@ function Login(){
                             Έχετε ήδη λογαριασμό ;
                         </div>
                         <div className="w-100 d-flex justify-content-center mt-4">
-                            <input id="login-email" type="text" placeholder="Email"></input>
+                            <input onChange={handleChangeEmail} value={email} id="login-email" type="text" placeholder="Email"></input>
                         </div>
                         <div className="w-100 d-flex justify-content-center mt-3">
-                            <input id="login-password" type="password" placeholder="Password"></input>
+                            <input onChange={handleChangePassword} value={password} id="login-password" type="password" placeholder="Password"></input>
                         </div>
                         <div className="w-100 d-flex justify-content-center mt-4">
-                            <button className="fw-bold login-btn btn btn-success">Είσοδος</button>
+                            <button onClick={handleLogin} className="fw-bold login-btn btn btn-success">Είσοδος</button>
                         </div>
                         <div className="mt-4 w-100 text-center">
                             <Link to="/forgot-account" className="fst-italic fw-bold forgot-account">
@@ -55,6 +74,10 @@ function Login(){
                     </div>
                 </div>
             </div>
+            <div className="mt-5">
+                <Footer/>
+            </div>
+
         </div>
     )
 }

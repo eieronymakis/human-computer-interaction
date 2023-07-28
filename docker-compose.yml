@@ -5,6 +5,8 @@ services:
     container_name: react
     ports:
       - "3000:3000"
+    expose:
+      - 3000
     volumes:
       - ./react:/app
       - /app/node_modules
@@ -17,6 +19,8 @@ services:
     container_name: node
     ports:
       - "3005:3000"
+    expose:
+      - 3000
     volumes:
       - ./node:/app
       - /app/node_modules

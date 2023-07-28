@@ -31,7 +31,7 @@ export default function CustomizedBreadcrumbs(props) {
                 <StyledBreadcrumb
                     component={Link}
                     to="/"
-                    label="Home"
+                    label="Αρχική"
                     icon={<HomeIcon fontSize="small" />}
                 />
                 {nodes}

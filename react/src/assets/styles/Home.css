@@ -32,7 +32,7 @@
 .banner{
     position: relative;
     width: 55%;
-    height: 18rem;
+    height: 22rem;
     top: 0;
     left: 0;
     right: 0;
@@ -56,6 +56,10 @@
     position: absolute;
     bottom: 1rem;
     right: 5rem;
+    width: 10rem;
+    height: 3rem;
+    background-color: #4B3E97;
+    font-size: 1em;
 }
 
 .btn-banner:hover{
@@ -63,7 +67,7 @@
 }
 
 .right-banner{
-    height: 18rem;
+    height: 22rem;
     width: 40%;
     right: 0;
     top: 0;
@@ -74,8 +78,8 @@
 }
 
 .right-banner img{
-    width: 12rem;
-    height: 12rem;
+    max-width: 65%;
+    max-height: 65%;
 }
 
 .right-banner span{

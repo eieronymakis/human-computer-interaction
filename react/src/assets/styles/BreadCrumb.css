@@ -5,6 +5,7 @@
 .MuiChip-label{
     color: white !important;
     font-weight: bold;
+    font-size: 1rem;
 }
 
 [data-bs-theme=light] .MuiButtonBase-root,[data-bs-theme=light] .MuiChip-root{

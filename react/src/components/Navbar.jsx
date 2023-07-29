@@ -39,26 +39,31 @@ function Navbar(){
                 </div>
                 
                 <div className="dropdown ms-auto">
-                    <div type="button" className="logged-in text-light ms-auto btn btn-primary shadow-none me-2 d-flex navbar-btn-login d-flex align-items-center justify-content-center" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button type="button" className="logged-in btn text-dark border border-dark border-2 me-2 navbar-btn-login d-flex align-items-center justify-content-center" data-bs-toggle="dropdown" aria-expanded="false">
                         <span className="d-flex align-items-center tag">eieronymakis</span>
                         <i className="ms-2 fs-3 bi bi-person-circle"></i>
-                        <ul className="dropdown-menu mt-2 border border-4">
-                            <li className="profile-dropdown-item d-flex align-items-center justify-content-start">
-                                <i className="fs-3 bi bi-person-bounding-box me-3 ms-3"></i>
-                                <Link className="fs-5 fw-normal">Λογαριασμός</Link>
-                            </li>
-                            <li><hr className="dropdown-divider"/></li>
-                            <li className="profile-dropdown-item dropdown-orders d-flex align-items-center justify-content-start">
-                                <i className="fs-3 bi bi-cash-coin me-3 ms-3"></i>
-                                <Link className="fs-5 fw-normal">Αγορές</Link>
-                            </li>
-                            <li><hr className="dropdown-divider"/></li>
-                            <li className="profile-dropdown-item dropdown-logout d-flex align-items-center justify-content-start">
-                                <i className="fs-3 bi bi-door-open-fill me-3 ms-3"></i>
-                                <Link className="fs-5 fw-normal">Αποσύνδεση</Link>
-                            </li>
-                        </ul>
-                    </div>
+                    </button>
+                    <ul className="dropdown-menu mt-2 border border-2 border-dark">
+                        <Link to="/profile" className="profile-dropdown-item d-flex align-items-center justify-content-start">
+                            <i className="text-dark fs-3 bi bi-person-fill-gear me-3 ms-3"></i>
+                            <div className="text-dark fs-5 fw-normal">Λογαριασμός</div>
+                        </Link>
+                        <li><hr className="dropdown-divider"/></li>
+                        <Link to="/order-history" className="profile-dropdown-item dropdown-orders d-flex align-items-center justify-content-start">
+                            <i className="text-dark fs-3 bi bi-cash-coin me-3 ms-3"></i>
+                            <div className="text-dark fs-5 fw-normal">Αγορές</div>
+                        </Link>
+                        <li><hr className="dropdown-divider"/></li>
+                        <Link to="/contact" className="profile-dropdown-item dropdown-logout d-flex align-items-center justify-content-start">
+                            <i className="text-dark fs-3 bi bi-patch-question me-3 ms-3"></i>
+                            <div className="text-dark fs-5 fw-normal">Επικοινωνία</div>
+                        </Link>
+                        <li><hr className="dropdown-divider"/></li>
+                        <Link to="/logout" className="profile-dropdown-item dropdown-logout d-flex align-items-center justify-content-start">
+                            <i className="text-dark fs-3 bi bi-door-open-fill me-3 ms-3"></i>
+                            <div className="text-dark fs-5 fw-normal">Αποσύνδεση</div>
+                        </Link>
+                    </ul>
                 </div>
 
                 <Link to="/cart" className="text-light btn btn-warning shadow-none me-2 d-flex navbar-btn-cart d-flex align-items-center justify-content-center">

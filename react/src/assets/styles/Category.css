@@ -1,9 +1,9 @@
 [data-bs-theme=light] .category-left-sidebar .accordion-button:not(.collapsed){
-    background: rgba(25,135,84, .8);
+    background: rgba(25,135,84);
 }
 
 [data-bs-theme=dark] .category-left-sidebar .accordion-button:not(.collapsed){
-    background: rgba(255, 193, 7, .8);
+    background: rgba(255, 193, 7, 0.8);
 }
 
 .category-left-sidebar .accordion-button:not(.collapsed) {
@@ -46,7 +46,7 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;    
     width: 8rem;
     height: 100%;
-    background: green;
+    background: rgba(25,135,84);
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
 }
@@ -60,7 +60,7 @@
     width: 25% !important;
 }
 
-.right{
+.category-container .right{
     width: 70%;
 }
 

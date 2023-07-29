@@ -11,7 +11,7 @@ function Header(){
                     <i className="bi bi-telephone-fill me-2"></i> 23102 02026
                 </div>
                 <div className="fs-5 h-100 d-flex align-items-center justify-content-center me-5 fw-bold">
-                    <Link to={"/help"}>
+                    <Link to={"/contact"}>
                         <i className="bi bi-patch-question-fill me-2"></i> Βοήθεια
                     </Link>
                 </div>

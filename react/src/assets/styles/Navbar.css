@@ -2,8 +2,24 @@ html{
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+[data-bs-theme=dark] .logged-in .tag,[data-bs-theme=dark]  .logged-in i, [data-bs-theme=dark]  .logged-in a{
+  color: white !important;
+}
+
+[data-bs-theme=dark] .profile-dropdown-item i,[data-bs-theme=dark] .profile-dropdown-item div{
+  color: white !important;
+}
+
+[data-bs-theme=dark] .logged-in {
+  border-color: white !important;
+}
+
+[data-bs-theme=dark] .navbar .dropdown-menu{
+  border-color: white !important;
+} 
+
 .navbar{
-    height: 5rem !important;
+    height: 5.5rem !important;
     padding: 0 !important;
     z-index: 9999 !important;
 }
@@ -43,7 +59,7 @@ a{
   transition: 0.2s;
 }
 
-.profile-dropdown-item:hover a{
+.profile-dropdown-item:hover div{
   font-weight: bold !important;
 }
 

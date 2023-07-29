@@ -256,6 +256,13 @@ export default function Category(){
                             </Link>
                     ))}
                     </div>
+                    <div className="w-100 fs-3 mt-5 d-flex align-items-center justify-content-center">
+                        <i className="text-success bi bi-arrow-left-circle-fill"></i>
+                        <Link className="ms-4" to="#">1</Link>
+                        <Link className="ms-3" to="#">2</Link>
+                        <Link className="ms-3" to="#">3</Link>
+                        <i className="text-success ms-4 bi bi-arrow-right-circle-fill"></i>
+                    </div>
                 </div>
             </div>
             <div className="mt-5 w-100">

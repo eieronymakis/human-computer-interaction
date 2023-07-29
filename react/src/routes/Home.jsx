@@ -25,7 +25,7 @@ function Home(){
                         Περισσότερα
                     </button>
                 </div>
-                <div className="right-banner bg-secondary me-2 border border-light d-flex align-items-center flex-column">
+                <div className="right-banner bg-secondary border border-light d-flex align-items-center justify-content-center flex-column">
                     <img alt="" src={bannerRight}></img>
                     <span className="fw-bold">
                         Φτιάξε τον δικό σου Η/Υ

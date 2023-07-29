@@ -32,7 +32,7 @@ export default function CustomizedBreadcrumbs(props) {
                     component={Link}
                     to="/"
                     label="Αρχική"
-                    icon={<HomeIcon fontSize="small" />}
+                    icon={<HomeIcon fontSize="medium" />}
                 />
                 {nodes}
             </Breadcrumbs>

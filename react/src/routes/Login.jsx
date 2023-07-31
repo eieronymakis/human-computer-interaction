@@ -8,7 +8,7 @@ import '../assets/styles/Login.css';
 import image from '../assets/images/image 5.png'
 
 function Login(){
- 
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     
@@ -33,7 +33,7 @@ function Login(){
                         <img className="image-hover" alt="" src={image}></img>
                         <div className="ms-5">
                             <div className="text-light mt-5 w-100 text-center fw-bold fs-1 new-customer">
-                                Νέος Χρήστης;
+                                Νέος Χρήστης ;
                             </div>
                             <div className="mt-3 text-warning w-50 text-center fw-bold fs-5 ms-auto me-auto">
                                 Πατήστε παρακάτω για να φτιάξετε νέο λογαριασμό
@@ -81,5 +81,5 @@ function Login(){
         </div>
     )
 }
-
+   
 export default Login;

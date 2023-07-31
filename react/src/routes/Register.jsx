@@ -54,7 +54,7 @@ function Register(){
                             <input onChange={handleChangePassword} value={password} id="register-password" type="password" placeholder="Κωδικός Πρόσβασης"></input>
                             <input onChange={handleChangePassword2} value={password2} id="register-password-2" type="password" placeholder="Επαλήθευση Κωδικού Πρόσβασης"></input>
                         </div>
-                        <div className="w-100 d-flex justify-content-center mt-4">
+                        <div className="w-100 d-flex justify-content-center mt-4">  
                             <button onClick={handleRegister} className="fw-bold register-btn btn btn-success">Εγγραφή</button>
                         </div>
                         <div className="mt-4 w-100 text-center">

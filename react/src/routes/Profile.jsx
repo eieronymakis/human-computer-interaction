@@ -45,15 +45,15 @@ function Profile(){
                 <div className="right d-flex align-items-center justify-content-center">
                     <div className="account-form">  
                         <div className="w-100 d-flex justify-content-center mt-4">
-                            <input onChange={handleChangeName} value={firstName} id="account-first-name" type="text" placeholder="Όνομα"></input>
-                            <input onChange={handleChangeSurname} value={lastName} id="account-last-name" type="text" placeholder="Επίθετο"></input>
+                            <input className="border border-2" onChange={handleChangeName} value={firstName} id="account-first-name" type="text" placeholder="Όνομα"></input>
+                            <input className="border border-2" onChange={handleChangeSurname} value={lastName} id="account-last-name" type="text" placeholder="Επίθετο"></input>
                         </div>
                         <div className="w-100 mt-4 shift-right-input">  
-                            <input onChange={handleChangeEmail} value={email} id="account-email" type="email" placeholder="Email"></input>
+                            <input className="border border-2" onChange={handleChangeEmail} value={email} id="account-email" type="email" placeholder="Email"></input>
                         </div>
                         <div className="w-100 d-flex justify-content-center mt-4">
-                            <input onChange={handleChangePassword} value={password} id="account-password" type="password" placeholder="Κωδικός Πρόσβασης"></input>
-                            <input onChange={handleChangePassword2} value={password2} id="account-password-2" type="password" placeholder="Επιβεβαίωση Κωδικού"></input>
+                            <input className="border border-2" onChange={handleChangePassword} value={password} id="account-password" type="password" placeholder="Κωδικός Πρόσβασης"></input>
+                            <input className="border border-2" onChange={handleChangePassword2} value={password2} id="account-password-2" type="password" placeholder="Επιβεβαίωση Κωδικού"></input>
                         </div>
                     </div>
       

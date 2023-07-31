@@ -1,0 +1,92 @@
+.login-container{
+    height: 30rem;
+    width: 60rem;
+    border-radius: 1rem;
+    background-color: #1F4A33;
+}
+
+.login-container .left{
+    width: 15%;
+    position: relative;
+}
+
+
+.login-container .right{
+    width: 85%;
+}
+
+.login-container .right .register-form{
+    height: 80%;
+    width: 90%;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.login-container .right .register-form input{
+    text-align: center;
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    width: 44%;
+    height: 3rem;
+    border-radius: 0.5rem;  
+    border: 0;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.login-container .right .register-form #login-email::placeholder, .login-container .right .register-form #login-password::placeholder{
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.login-container .right .register-form .register-btn{
+    width: 25%;
+    height: 3rem;
+    font-size: 1.2rem;
+}
+
+.login-container .right .register-form  a{
+    width: 100% !important;
+    font-size: 1rem;
+}
+
+.login-container .right .register-form  a:hover{
+    text-decoration: underline;
+    color: navy !important;
+}
+
+.login-container .left .new-customer{
+    -webkit-text-stroke-width: 0.1rem;
+}
+
+.login-container .left .register-btn{
+    border: 0.1rem solid white;
+    height: 10rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+    background-color: #364c9e;
+    border-radius: 0.5rem;
+}
+
+.login-container .left .register-btn:hover{
+    background-color: #4965c9;
+}
+
+.login-container .left .back-btn{
+    margin-top: 7rem;
+    font-size: 3rem;
+    color: rgba(255,255,255, 0.8) !important;
+}
+
+.login-container .left .back-btn span{
+    font-size: 1.5rem;
+}
+
+.login-container .left .image-hover{
+    position: absolute;
+    left: -3.8rem;
+    max-height: 15rem;
+}

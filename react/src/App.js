@@ -5,9 +5,14 @@ import Product from "./routes/Product";
 import Login from "./routes/Login";
 import Category from "./routes/Category";
 import Contact from "./routes/Contact"
+import Cart from "./laz/pages/Cart"
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <BrowserRouter>
+     <Navbar />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route index element={<Home />} />
@@ -20,7 +25,10 @@ function App() {
         </Route>
         <Route path="/contact" element={<Contact/>}>
         </Route>
+        <Route path="/cart" element={<Cart />}>
+        </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

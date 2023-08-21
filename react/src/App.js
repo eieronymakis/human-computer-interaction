@@ -8,6 +8,9 @@ import Contact from "./routes/Contact"
 import Cart from "./laz/pages/Cart"
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import CheckOut from "./laz/pages/CheckOut";
+import Payment from "./laz/pages/Payment";
+import PaymentComplete from "./laz/pages/PaymentComplete";
 
 function App() {
   return (
@@ -26,6 +29,12 @@ function App() {
         <Route path="/contact" element={<Contact/>}>
         </Route>
         <Route path="/cart" element={<Cart />}>
+        </Route>
+        <Route path="/checkout" element={<CheckOut />}>
+        </Route>
+        <Route path="/payment" element={<Payment />}>
+        </Route>
+        <Route path="/payment-complete" element={<PaymentComplete />}>
         </Route>
       </Routes>
       <Footer />

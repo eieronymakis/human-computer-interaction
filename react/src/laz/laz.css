@@ -13,3 +13,7 @@ html {
 .section-75rem{
     margin-top: 7.5rem;
 }
+
+.textArea::placeholder {
+    padding: 1rem 0.8rem;
+}

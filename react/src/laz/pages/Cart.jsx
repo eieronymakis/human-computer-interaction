@@ -6,8 +6,12 @@ import './Cart.css'
 import OnClickBtn from '../components/buttons/OnClickBtn'
 import { valuesBtnColor } from '../components/buttons/buttons-style'
 import MobileTable from '../components/Cart/MobileTable'
+import { useNavigate } from 'react-router-dom';
+
 
 function Cart() {
+  const navigate = useNavigate();
+
   return (
     <section className='cart-section container section-75rem'>
       <div className='cart-up'>
@@ -24,7 +28,6 @@ function Cart() {
                   products_cart.products.map((product)=>{
                     return <TableRow 
                               key={product.id}
-                              // id={product.id}
                               name={product.name}
                               price={product.price}
                               quantity={product.quantity}
@@ -43,7 +46,6 @@ function Cart() {
                   products_cart.products.map((product)=>{
                     return <MobileTable 
                               key={product.id}
-                              // id={product.id}
                               name={product.name}
                               price={product.price}
                               quantity={product.quantity}
@@ -79,13 +81,17 @@ function Cart() {
                 name="ΣΥΝΕΧΙΣΕ ΤΙΣ ΑΓΟΡΕΣ ΣΟΥ"
               />
               <OnClickBtn
-                url=""
+                url="/checkout/info"
                 btncolor={valuesBtnColor.green}
                 hovercolor={valuesBtnColor.hoverGreen}
                 name="ΠΛΗΡΩΜΗ"
               />
+              <button className="btn" onClick={() => navigate('checkout')}>
+                Place Order
+            </button>
         </div>
       </div>
+      
     </section>
   )
 }

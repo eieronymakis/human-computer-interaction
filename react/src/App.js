@@ -5,6 +5,7 @@ import Product from "./routes/Product";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
 import Profile from "./routes/Profile"; 
+import OrderHistory from "./routes/OrderHistory"; 
 import Category from "./routes/Category";
 import Contact from "./routes/Contact"
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route path="/register" element={<Register />}>
         </Route>  
         <Route path="/profile" element={<Profile />}>
+        </Route> 
+        <Route path="/order-history" element={<OrderHistory />}>
         </Route> 
         <Route path="/product" element={<Product/>}>
         </Route>

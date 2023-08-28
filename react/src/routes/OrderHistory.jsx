@@ -1,11 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import BreadCrumb from '../components/BreadCrumb';
 import Footer from '../components/Footer';
+import TableRow from '../laz/components/Cart/TableRow'
+import '../laz/laz.css'
+import '../laz/pages/Cart.css'
+import { products_cart } from '../laz/dummys/cart'
 
 import '../assets/styles/OrderHistory.css';
-import image from '../assets/images/image 5.png'
+
+const styles = {
+    checkoutSection: {boxShadow: '3px 3px 3px 0px rgba(0, 0, 0, 0.05)', borderRadius: '10px', background: '#F8F8F8', 
+         padding: '20px', margin: '2rem'
+    }, 
+    inputDefault: {
+        height: '49px', padding: '20px 10px', flexWrap: 'wrap',
+        border: '1px solid #D9D9D9'
+    },
+    inputLabel: {display: 'flex', flexDirection: 'row', gap: '1rem', flexWrap: 'wrap', justifyContent: 'space-evenly', paddingBottom: '0.8rem'},
+    classLabel: {paddingBottom: '0.4rem'},
+    textStyle: {color: '#3A3A3A', fontSize: '16px', fontStyle: 'normal', lineHeight: '22.08px', letterSpacing:'0.48px' },
+    productsLayout: {display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', alignContent: 'flex-start', 
+        rowGap: '10px', flexWrap: 'wrap'
+    }
+}
 
 function OrderHistory(){
 
@@ -43,11 +61,11 @@ function OrderHistory(){
 
             <br></br><br></br>
 
-            <div className="page-title">
+            <div className="page-title text-center">
                 <h4><b><u>ΙΣΤΟΡΙΚΟ ΠΑΡΑΓΓΕΛΙΩΝ</u></b></h4>
-            </div>
+            </div>   
 
-            <div className="pending-order cart-section container">
+            <div className="pending-order cart-section container section-75rem">
 
                 <div className="cart-up"> 
 
@@ -69,66 +87,116 @@ function OrderHistory(){
                                 </tr>
                             </tbody>
                         </table>
+                        <br></br>        
+                        <div className="text-center">
+                            <h5><b>ΠΛΗΡΟΦΟΡΙΕΣ ΠΑΡΑΓΓΕΛΙΑΣ</b></h5>
+                        </div>        
                         <br></br>
-                        <h5 style={{margin: 'auto'}}><b>ΠΛΗΡΟΦΟΡΙΕΣ ΠΑΡΑΓΓΕΛΙΑΣ</b></h5>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                    </div>
-                </div>
 
+                        {
+                            products_cart.products.map((product)=>{
+                                return <TableRow 
+                                        key={product.id}
+                                        name={product.name}
+                                        price={product.price}
+                                        quantity={product.quantity}
+                                        product_image={product.img}
+                                    />
+                            })
+                        }
+                    </div>
+                </div> 
 
             </div>   
 
-            <br></br>
+            <div className="delivered-order cart-section container section-75rem">
 
-            <div className="ms-auto me-auto mt-3 account-container d-flex delivered-order">
+                <div className="cart-up"> 
 
-                <div className="right d-flex align-items-center justify-content-center">
-                    <div className="account-form">  
-                        <div className="w-100 d-flex justify-content-center mt-4">
-                            <input className="border border-2" onChange={handleChangeName} value={firstName} id="account-first-name" type="text" placeholder="Όνομα"></input>
-                            <input className="border border-2" onChange={handleChangeSurname} value={lastName} id="account-last-name" type="text" placeholder="Επίθετο"></input>
-                        </div>
-                        <div className="w-100 mt-4 shift-right-input">  
-                            <input className="border border-2" onChange={handleChangeEmail} value={email} id="account-email" type="email" placeholder="Email"></input>
-                        </div>
-                        <div className="w-100 d-flex justify-content-center mt-4">
-                            <input className="border border-2" onChange={handleChangePassword} value={password} id="account-password" type="password" placeholder="Κωδικός Πρόσβασης"></input>
-                            <input className="border border-2" onChange={handleChangePassword2} value={password2} id="account-password-2" type="password" placeholder="Επιβεβαίωση Κωδικού"></input>
-                        </div>
+                    <div className="screen"> 
+                        <table>
+                            <tbody>
+                                <tr className="headers">
+                                    <th><b>ΑΡΙΘΜΟΣ ΠΑΡΑΓΓΕΛΙΑΣ</b></th>
+                                    <th><b>ΗΜΕΡΟΜΗΝΙΑ</b></th>
+                                    <th><b>ΚΑΤΑΣΤΑΣΗ</b></th>
+                                    <th><b>ΠΟΣΟ ΠΛΗΡΩΜΗΣ</b></th>
+                                </tr>
+                                
+                                <tr>
+                                    <th>456456456</th>
+                                    <th>23/10/2023</th>
+                                    <th>ΠΑΡΑΔΟΘΗΚΕ</th>
+                                    <th>2885.00€</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br></br>        
+                        <div className="text-center">
+                            <h5><b>ΠΛΗΡΟΦΟΡΙΕΣ ΠΑΡΑΓΓΕΛΙΑΣ</b></h5>
+                        </div>        
+                        <br></br>
+
+                        {
+                            products_cart.products.map((product)=>{
+                                return <TableRow 
+                                        key={product.id}
+                                        name={product.name}
+                                        price={product.price}
+                                        quantity={product.quantity}
+                                        product_image={product.img}
+                                    />
+                            })
+                        }
                     </div>
-    
-                </div>
+                </div> 
 
-            </div>   
 
-            <br></br>
+            </div>  
 
-            <div className="ms-auto me-auto mt-3 account-container d-flex cancelled-order">
+            <div className="cancelled-order cart-section container section-75rem">
 
-                <div className="right d-flex align-items-center justify-content-center">
-                    <div className="account-form">  
-                        <div className="w-100 d-flex justify-content-center mt-4">
-                            <input className="border border-2" onChange={handleChangeName} value={firstName} id="account-first-name" type="text" placeholder="Όνομα"></input>
-                            <input className="border border-2" onChange={handleChangeSurname} value={lastName} id="account-last-name" type="text" placeholder="Επίθετο"></input>
-                        </div>
-                        <div className="w-100 mt-4 shift-right-input">  
-                            <input className="border border-2" onChange={handleChangeEmail} value={email} id="account-email" type="email" placeholder="Email"></input>
-                        </div>
-                        <div className="w-100 d-flex justify-content-center mt-4">
-                            <input className="border border-2" onChange={handleChangePassword} value={password} id="account-password" type="password" placeholder="Κωδικός Πρόσβασης"></input>
-                            <input className="border border-2" onChange={handleChangePassword2} value={password2} id="account-password-2" type="password" placeholder="Επιβεβαίωση Κωδικού"></input>
-                        </div>
+                <div className="cart-up"> 
+
+                    <div className="screen"> 
+                        <table>
+                            <tbody>
+                                <tr className="headers">
+                                    <th><b>ΑΡΙΘΜΟΣ ΠΑΡΑΓΓΕΛΙΑΣ</b></th>
+                                    <th><b>ΗΜΕΡΟΜΗΝΙΑ</b></th>
+                                    <th><b>ΚΑΤΑΣΤΑΣΗ</b></th>
+                                    <th><b>ΠΟΣΟ ΠΛΗΡΩΜΗΣ</b></th>
+                                </tr>
+                                
+                                <tr>
+                                    <th>456456456</th>
+                                    <th>23/10/2023</th>
+                                    <th>ΑΚΥΡΩΘΗΚΕ</th>
+                                    <th>2885.00€</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br></br>        
+                        <div className="text-center">
+                            <h5><b>ΠΛΗΡΟΦΟΡΙΕΣ ΠΑΡΑΓΓΕΛΙΑΣ</b></h5>
+                        </div>        
+                        <br></br>
+
+                        {
+                            products_cart.products.map((product)=>{
+                                return <TableRow 
+                                        key={product.id}
+                                        name={product.name}
+                                        price={product.price}
+                                        quantity={product.quantity}
+                                        product_image={product.img}
+                                    />
+                            })
+                        }
                     </div>
-    
-                </div>
+                </div> 
 
-            </div>   
+            </div>  
 
             <div className="mt-5">
                 <Footer/>

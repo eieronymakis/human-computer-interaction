@@ -63,9 +63,11 @@ function OrderHistory(){
 
             <div className="page-title text-center">
                 <h4><b><u>ΙΣΤΟΡΙΚΟ ΠΑΡΑΓΓΕΛΙΩΝ</u></b></h4>
-            </div>   
+            </div>     
 
-            <div className="pending-order cart-section container section-75rem">
+            <br></br>
+
+            <div className="pending-order cart-section container">
 
                 <div className="cart-up"> 
 
@@ -109,7 +111,9 @@ function OrderHistory(){
 
             </div>   
 
-            <div className="delivered-order cart-section container section-75rem">
+            <br></br>
+
+            <div className="delivered-order cart-section container">
 
                 <div className="cart-up"> 
 
@@ -152,9 +156,11 @@ function OrderHistory(){
                 </div> 
 
 
-            </div>  
+            </div> 
 
-            <div className="cancelled-order cart-section container section-75rem">
+            <br></br> 
+
+            <div className="cancelled-order cart-section container">
 
                 <div className="cart-up"> 
 
@@ -182,6 +188,7 @@ function OrderHistory(){
                         </div>        
                         <br></br>
 
+                        <tr>
                         {
                             products_cart.products.map((product)=>{
                                 return <TableRow 
@@ -193,6 +200,7 @@ function OrderHistory(){
                                     />
                             })
                         }
+                        </tr>
                     </div>
                 </div> 
 

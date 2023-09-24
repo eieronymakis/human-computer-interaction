@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-
-import Navbar from "../components/Navbar";
 import Breadcrumb from "../components/BreadCrumb";
-import CategoryNav from "../components/CategoryNav";
-import Footer from "../components/Footer";
 
 import '../assets/styles/Product.css';
 
@@ -19,8 +15,6 @@ function Product(){
     }
     return(
         <div className="product">
-            <Navbar></Navbar>
-            <CategoryNav></CategoryNav>
             <Breadcrumb items={[{"path":"/categories", "label":"Κατηγορίες"}, {"path":"/categories/laptops", "label":"Laptops"}, {"path":"#","label":"Macbook Air M2"}]}></Breadcrumb>
             <div className="mt-4 d-flex ms-auto me-auto product-container">
                 <div className="left h-100 d-flex justify-content-end">
@@ -107,7 +101,6 @@ function Product(){
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     )
 }

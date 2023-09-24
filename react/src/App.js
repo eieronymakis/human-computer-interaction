@@ -11,10 +11,12 @@ import Navbar from "./components/Navbar";
 import CheckOut from "./laz/pages/CheckOut";
 import Payment from "./laz/pages/Payment";
 import PaymentComplete from "./laz/pages/PaymentComplete";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
+    <Header/>
      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}>

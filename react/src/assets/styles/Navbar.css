@@ -2,21 +2,35 @@ html{
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-[data-bs-theme=dark] .logged-in .tag,[data-bs-theme=dark]  .logged-in i, [data-bs-theme=dark]  .logged-in a{
-  color: white !important;
-}
-
 [data-bs-theme=dark] .profile-dropdown-item i,[data-bs-theme=dark] .profile-dropdown-item div{
   color: white !important;
 }
 
-[data-bs-theme=dark] .logged-in {
-  border-color: white !important;
-}
 
 [data-bs-theme=dark] .navbar .dropdown-menu{
   border-color: white !important;
-} 
+}
+
+[data-bs-theme=light] .navbar .nav-middle .nav-link:hover{
+  font-weight: bold;
+  color: #198754 !important;
+}
+
+[data-bs-theme=dark] .navbar .nav-middle .nav-link:hover{
+  font-weight: bold;
+  color: rgba(255, 193, 7, 0.8) !important;
+}
+
+[data-bs-theme=light] .categories-visible{
+  font-weight: bold;
+  color: #198754 !important;
+}
+
+[data-bs-theme=dark] .categories-visible{
+  font-weight: bold;
+  color: rgba(255, 193, 7, 0.8) !important;
+}
+
 
 .navbar{
     height: 5.5rem !important;
@@ -29,6 +43,10 @@ html{
     margin: 0 !important;
 }
 
+.nav-middle{
+  font-family: 'Proxima Nova Extra Condensed', sans-serif;
+  font-weight: 600;
+}
 .navbar-logo{
     display: flex;
     height: 5rem !important;

@@ -22,7 +22,6 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain)
 
-
 app.get('/products/laptops', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "laptops"`,

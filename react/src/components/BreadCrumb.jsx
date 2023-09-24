@@ -28,11 +28,11 @@ export default function CustomizedBreadcrumbs(props) {
     <div className="mt-3 w-100 d-flex justify-content-center">
         <div role="presentation">
             <Breadcrumbs separator={<i className="fs-3 bi bi-arrow-right-short"></i>} aria-label="breadcrumb">
-                <StyledBreadcrumb
+                <Chip className="home-chip"
                     component={Link}
                     to="/"
-                    label="Αρχική"
                     icon={<HomeIcon fontSize="medium" />}
+                    label="Αρχική"
                 />
                 {nodes}
             </Breadcrumbs>

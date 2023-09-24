@@ -1,9 +1,12 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import Slider from 'react-slick'
 
 import '../assets/styles/ProductCarousel.css'
 
 export default function ProductCarousel(props) {
+
+    const title = props.title;
+
     const sliderRef = useRef();
     let nodes = "";
 
@@ -27,7 +30,7 @@ export default function ProductCarousel(props) {
 
     return(
         <div className="w-100 mt-5">                
-            <span className="product-carousel-title"> Δημοφιλή προϊόντα</span>
+            <span className="product-carousel-title">{title}</span>
             <div className="w-100 d-flex justify-content-center align-items-center">
                 <button className="text-light btn slick-btn me-3" onClick={()=>sliderRef?.current?.slickPrev()}><i className="bi bi-arrow-left"></i></button>   
                 <Slider ref={sliderRef} {...settings} className="mt-3 w-75">

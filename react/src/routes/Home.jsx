@@ -1,11 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import BreadCrumb from "../components/BreadCrumb";
-import CategoryNav from "../components/CategoryNav";
 import ProductCarousel from "../components/ProductCarousel";
 
 import '../assets/styles/Home.css';
@@ -15,9 +11,6 @@ import bannerRight from '../assets/images/image 1.png';
 function Home(){
     return (
         <div className="Home">
-            <Header/>
-            <Navbar/>
-            <CategoryNav/>
             <BreadCrumb/>
             <div className="w-100 d-flex mt-4 justify-content-center align-items-center">
                 <div className="banner border-light border bg-secondary">
@@ -35,7 +28,7 @@ function Home(){
                     </button>
                 </div>
             </div>
-            <ProductCarousel products={
+            <ProductCarousel title="Δημοφιλή προϊόντα" products={
                 [
                     {"img":"https://static.skyassets.com/contentstack/assets/blt143e20b03d72047e/blt8937265d6aa0575b/622a7dd8eda9a1043584adcb/Carousel_iPad_Blue_Placement02.png"},
                     {"img":"https://images.macrumors.com/t/Au-OUIb73hHvx2w8CirAir5bNbM=/1600x/article-new/2013/09/macbook-air-m2-roundup-header.png"},
@@ -44,8 +37,8 @@ function Home(){
                     {"img":"https://dlcdnwebimgs.asus.com/gain/E0E15911-885A-421B-A775-5E1854731699"}
                 ]
             }/>
-            <div className="w-75 ms-auto me-auto categories-title">
-                <span className="home-categories-title">Ψάξτε ανά κατηγορία</span>
+            <div className="w-100 ms-auto me-auto categories-title">
+                <span style={{marginLeft:"11rem"}} className="home-categories-title">Ψάξτε ανά κατηγορία</span>
             </div>
             <div className="w-75 ms-auto me-auto home-categories">
                 <Link to="/monitors" className="category-card d-flex align-items-center justify-content-center flex-column">
@@ -73,7 +66,7 @@ function Home(){
                     <span className="text-align-center">Δικτυακά</span>
                 </Link>            
             </div>
-            <ProductCarousel products={
+            <ProductCarousel title="Νέα προϊόντα" products={
                 [
                     {"img":"https://www.in-win.com/uploads/Product/gaming-chassis/d-frame-2/d-frame2_overview_options_02.png"},
                     {"img":"https://asset.msi.com/resize/image/global/product/product_1665552671c76199be0956de9b63d7e35b33b91acb.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"},
@@ -82,10 +75,6 @@ function Home(){
                     {"img":"https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MjI2NDY5fGltYWdlL3BuZ3xoMDEvaGQxLzE0MDgwNDg0ODY4MTI2LnBuZ3xjZTM1YWNmODQxYWQyNDdjYzEyOTFkNTE1NmIwMjBkMGY0MDBjODY0ODgyNjAxNDA2NDQxYjMwYzc1MDBjZjAy/lenovo-laptop-thinkpad-x1-nano-13-hero.png"}            
                 ]
             }/>
-            <div style={{marginTop:"7rem"}}>
-                <Footer/>
-            </div>
-    
         </div>
     )
 }

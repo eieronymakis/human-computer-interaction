@@ -1,8 +1,6 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import "../assets/styles/Contact.css"
 import GoogleMapReact from 'google-map-react';
-import Footer from "../components/Footer";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -18,7 +16,6 @@ export default function Contact(){
 
     return(
         <div className="contact-page w-100">
-            <Navbar/>
             <div className="ms-auto me-auto top-container d-flex flex-column justify-content-between">
                 <div className="d-flex top ms-auto me-auto justify-content-between">
                     <div className="left d-flex flex-column">
@@ -84,9 +81,6 @@ export default function Contact(){
                                 />
                         </GoogleMapReact>
                     </div>
-                </div>
-                <div className="mt-5">
-                    <Footer/>
                 </div>
             </div>
         </div>

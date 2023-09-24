@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+
 import BreadCrumb from '../components/BreadCrumb';
-import Footer from '../components/Footer';
 
 import '../assets/styles/Login.css';
 import image from '../assets/images/image 5.png'
@@ -19,20 +18,22 @@ function Login(){
         setPassword(event.target.value);
     };
     const handleLogin = async () => {
-        console.log(email+password)
+        if(email === "test" && password === "test"){
+            localStorage.setItem('loggedIn', "true")
+            localStorage.setItem('username', "eieronymakis")
+        }
     }
 
     return(
         <div className="login">
-            <Navbar></Navbar>
             <BreadCrumb                 
                 items={[{"path":"/login","label":"Σύνδεση"}]}>
             </BreadCrumb>
             <div className="ms-auto me-auto mt-3 login-container d-flex">
                 <div className="left">
                         <img className="image-hover" alt="" src={image}></img>
-                        <div className="ms-5">
-                            <div className="text-light mt-5 w-100 text-center fw-bold fs-1 new-customer">
+                        <div className="create-account-container">
+                            <div className="text-light w-100 text-center fw-bold new-customer">
                                 Νέος Χρήστης ;
                             </div>
                             <div className="mt-3 text-warning w-50 text-center fw-bold fs-5 ms-auto me-auto">
@@ -44,7 +45,7 @@ function Login(){
                                 </Link>
                             </div>
                         </div>
-                        <div className="text-light w-50 text-center fw-bold fs-5 ms-5 me-auto">
+                        <div className="back text-light w-50 text-center fw-bold fs-5 ms-5">
                             <Link to="/" className="back-btn d-flex align-items-center">
                                 <i className="bi bi-arrow-left-square-fill"></i>
                                 <span className="ms-3">Πίσω</span>
@@ -54,7 +55,7 @@ function Login(){
                 </div>
                 <div className="right d-flex align-items-center justify-content-center">
                     <div className="login-form bg-body">
-                        <div className="mt-5 w-100 text-center fw-bold fs-4">
+                        <div className="mt-5 w-100 text-center fw-bold fs-3">
                             Έχετε ήδη λογαριασμό ;
                         </div>
                         <div className="w-100 d-flex justify-content-center mt-4">
@@ -67,17 +68,13 @@ function Login(){
                             <button onClick={handleLogin} className="fw-bold login-btn btn btn-success">Είσοδος</button>
                         </div>
                         <div className="mt-4 w-100 text-center">
-                            <Link to="/forgot-account" className="fst-italic fw-bold forgot-account">
+                            <Link to="/forgot-account" className="fst-italic fs-5 fw-bold forgot-account">
                                 Ξεχάσατε τα στοιχεία εισόδου ;
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="mt-5">
-                <Footer/>
-            </div>
-
         </div>
     )
 }

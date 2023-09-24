@@ -86,9 +86,6 @@ function Cart() {
                 hovercolor={valuesBtnColor.hoverGreen}
                 name="ΠΛΗΡΩΜΗ"
               />
-              <button className="btn" onClick={() => navigate('checkout')}>
-                Place Order
-            </button>
         </div>
       </div>
       

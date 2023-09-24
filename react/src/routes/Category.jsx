@@ -1,9 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
 import {useParams, Link} from 'react-router-dom'
-
-import Navbar from "../components/Navbar";
-import CategoryNav from "../components/CategoryNav";
-import Footer from "../components/Footer";
 import BreadCrumb from '../components/BreadCrumb';
 
 import Slider from '@mui/material/Slider';
@@ -86,8 +82,6 @@ export default function Category(){
 
     return(
         <div className="category-page w-100">
-            <Navbar/>
-            <CategoryNav/>
             <BreadCrumb 
                 items={[{"path":"/categories","label":"Κατηγορίες"}, {"path":"/categories/laptops","label":"Laptops"}]}>
             </BreadCrumb>
@@ -264,9 +258,6 @@ export default function Category(){
                         <i className="text-success ms-4 bi bi-arrow-right-circle-fill"></i>
                     </div>
                 </div>
-            </div>
-            <div className="mt-5 w-100">
-                <Footer/>
             </div>
         </div>
     )

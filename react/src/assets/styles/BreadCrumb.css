@@ -1,11 +1,21 @@
 .MuiChip-icon{
     color: white !important;
 }
-
+.MuiChip-root{
+    height: 2rem !important;
+}
 .MuiChip-label{
     color: white !important;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1rem !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-chip{
+    width: 7rem;
 }
 
 [data-bs-theme=light] .MuiButtonBase-root,[data-bs-theme=light] .MuiChip-root{

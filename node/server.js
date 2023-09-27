@@ -22,10 +22,38 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain)
 
+// get all products 
+app.get('/products', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
 
+// get laptops
 app.get('/products/laptops', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "laptops"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
+// get monitors 
+app.get('/products/monitors', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products WHERE category = "monitors"`,
     function(err, results, fields) {
       if(err)
         res.send([]).status(500).end();

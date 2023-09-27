@@ -36,7 +36,36 @@ app.get('/products', async (req,res) => {
   res.send(data);
 });
 
-// get laptops
+
+// get desktop products
+app.get('/products/desktops', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products WHERE category = "desktops"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
+// get hardware products
+app.get('/products/hardware', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products WHERE category = "hardware"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
+// get laptop products
 app.get('/products/laptops', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "laptops"`,
@@ -50,7 +79,7 @@ app.get('/products/laptops', async (req,res) => {
   res.send(data);
 });
 
-// get monitors 
+// get monitor products
 app.get('/products/monitors', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "monitors"`,
@@ -63,6 +92,49 @@ app.get('/products/monitors', async (req,res) => {
   );
   res.send(data);
 });
+
+// get networking products
+app.get('/products/networking', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products WHERE category = "networking"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
+// get peripheral products
+app.get('/products/peripherals', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products WHERE category = "peripherals"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
+// get tablet products
+app.get('/products/tablets', async (req,res) => {
+  connection.query(
+    `SELECT * FROM products WHERE category = "tablets"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
 
 app.get('/', (req, res) => {
   res.send({ message: 'Message From Express Backend!' });

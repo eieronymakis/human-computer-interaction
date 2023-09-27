@@ -22,6 +22,8 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain)
 
+// GET queries 
+
 // get all products 
 app.get('/products', async (req,res) => {
   connection.query(
@@ -35,7 +37,6 @@ app.get('/products', async (req,res) => {
   );
   res.send(data);
 });
-
 
 // get desktop products
 app.get('/products/desktops', async (req,res) => {
@@ -135,6 +136,21 @@ app.get('/products/tablets', async (req,res) => {
   res.send(data);
 });
 
+// DELETE queries 
+
+// delete product from cart 
+app.get('/cart/:id/delete', async (req,res) => {
+  connection.query(
+    `DELETE FROM cart WHERE cid = ${req.params.id}`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
 
 app.get('/', (req, res) => {
   res.send({ message: 'Message From Express Backend!' });

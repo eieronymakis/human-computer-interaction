@@ -21,6 +21,10 @@ services:
       - "3005:3000"
     expose:
       - 3000
+    depends_on:
+      - db  
+    links:   
+      - db
     volumes:
       - ./node:/app
       - /app/node_modules
@@ -36,12 +40,33 @@ services:
     expose:
       - "3306"
     environment:
-      - "MYSQL_ROOT_PASSWORD=xyz123"
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=xyz123
+      - MYSQL_ROOT_PASSWORD=xyz123
+      - MYSQL_DATABASE=visionstudio
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     networks:
       net0:
         ipv4_address: 172.20.0.7
     volumes:
-      - mysql-data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql 
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8000:80
+    networks:
+      net0:
+          ipv4_address: 172.20.0.8 
 
 volumes:
   mysql-data:

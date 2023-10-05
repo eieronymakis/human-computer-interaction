@@ -139,9 +139,9 @@ app.get('/products/tablets', async (req,res) => {
 // DELETE queries 
 
 // delete product from cart 
-app.get('/cart/:id/delete', async (req,res) => {
+app.delete('/cart/:id', async (req,res) => {
   connection.query(
-    `DELETE FROM cart WHERE cid = ${req.params.id}`,
+    `DELETE FROM carts WHERE cid = ${req.params.id}`,
     function(err, results, fields) {
       if(err)
         res.send([]).status(500).end();

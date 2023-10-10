@@ -24,7 +24,7 @@ app.use(allowCrossDomain)
 
 // GET queries 
 
-// get all products 
+// Get all products 
 app.get('/products', async (req,res) => {
   connection.query(
     `SELECT * FROM products`,
@@ -38,7 +38,7 @@ app.get('/products', async (req,res) => {
   res.send(data);
 });
 
-// get desktop products
+// Get desktop products
 app.get('/products/desktops', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "desktops"`,
@@ -52,7 +52,7 @@ app.get('/products/desktops', async (req,res) => {
   res.send(data);
 });
 
-// get hardware products
+// Get hardware products
 app.get('/products/hardware', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "hardware"`,
@@ -66,7 +66,7 @@ app.get('/products/hardware', async (req,res) => {
   res.send(data);
 });
 
-// get laptop products
+// Get laptop products
 app.get('/products/laptops', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "laptops"`,
@@ -80,7 +80,7 @@ app.get('/products/laptops', async (req,res) => {
   res.send(data);
 });
 
-// get monitor products
+// Get monitor products
 app.get('/products/monitors', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "monitors"`,
@@ -94,7 +94,7 @@ app.get('/products/monitors', async (req,res) => {
   res.send(data);
 });
 
-// get networking products
+// Get networking products
 app.get('/products/networking', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "networking"`,
@@ -108,7 +108,7 @@ app.get('/products/networking', async (req,res) => {
   res.send(data);
 });
 
-// get peripheral products
+// Get all peripheral products
 app.get('/products/peripherals', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "peripherals"`,
@@ -122,7 +122,7 @@ app.get('/products/peripherals', async (req,res) => {
   res.send(data);
 });
 
-// get tablet products
+// Get all tablet products
 app.get('/products/tablets', async (req,res) => {
   connection.query(
     `SELECT * FROM products WHERE category = "tablets"`,
@@ -136,9 +136,68 @@ app.get('/products/tablets', async (req,res) => {
   res.send(data);
 });
 
+// Get a cart details by its cartId
+app.get('/carts/:cartId', async (req,res) => {
+  connection.query(
+    `SELECT * FROM carts WHERE cid = ${req.params.cartId}`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
+// Get a user's carts by his/her uid 
+app.get('/users/:uid/carts', async (req,res) => {
+  connection.query(
+    `SELECT * FROM carts WHERE uid = ${req.params.uid}`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
+// POST queries 
+
+// Insert a product in cart 
+app.post('/carts', async (req,res) => {
+  connection.query(
+    `INSERT INTO carts (uid, pid, insertionDate, amount, price) 
+    VALUES (${req.body.uid}, ${req.body.pid}, NOW(), ${req.body.amount}, ${req.body.price})`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});  
+
+// Create a product order 
+app.delete('/cart/:id', async (req,res) => {
+  connection.query(
+    `DELETE FROM carts WHERE cid = ${req.params.id}`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});
+
 // DELETE queries 
 
-// delete product from cart 
+// Delete a product from cart 
 app.delete('/cart/:id', async (req,res) => {
   connection.query(
     `DELETE FROM carts WHERE cid = ${req.params.id}`,

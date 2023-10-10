@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-
 const mysql = require('mysql2');
+const jwt = require('jsonwebtoken');
 
 const connection = mysql.createConnection({
   host: '172.20.0.7',
@@ -22,7 +22,7 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain)
 
-// GET queries 
+//// Fetch product functions endpoints 
 
 // Get all products 
 app.get('/products', async (req,res) => {
@@ -136,6 +136,8 @@ app.get('/products/tablets', async (req,res) => {
   res.send(data);
 });
 
+//// Cart functions endpoints 
+
 // Get a cart details by its cartId
 app.get('/carts/:cartId', async (req,res) => {
   connection.query(
@@ -150,8 +152,8 @@ app.get('/carts/:cartId', async (req,res) => {
   res.send(data);
 });
 
-// Get a user's carts by his/her uid 
-app.get('/users/:uid/carts', async (req,res) => {
+// Get a user's cart by his/her uid 
+app.get('/users/:uid/cart', async (req,res) => {
   connection.query(
     `SELECT * FROM carts WHERE uid = ${req.params.uid}`,
     function(err, results, fields) {
@@ -164,7 +166,39 @@ app.get('/users/:uid/carts', async (req,res) => {
   res.send(data);
 });
 
-// POST queries 
+//// Login and signup endpoints 
+
+// Login endpoint with JWT authentication 
+app.post('/user/login', async(req, res) => {
+
+  try {
+    secretKey = "HCI_project^_2023_"
+    connection.query(   
+      `SELECT * FROM users WHERE username = "${req.body.usr}" AND password = "${req.body.pwd}"`,
+      function(err, results, fields) {
+        if(err) {
+          res.send([]).status(500).end();
+        } else { 
+          // Check if the user was found in the database
+          if (results.length > 0) {  
+            // generate a JWT token and return the token as a response
+            token = jwt.sign({ userId: results[0].uid, userName: results[0].username }, secretKey, { expiresIn: '1h' });
+            res.json({ token });  
+          } else {
+            res.send([]).status(500).end();
+          }
+        }  
+      }
+    );
+ 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+
+});
+
+//// Order functions endpoints 
 
 // Insert a product in cart 
 app.post('/carts', async (req,res) => {
@@ -194,8 +228,6 @@ app.delete('/cart/:id', async (req,res) => {
   );
   res.send(data);
 });
-
-// DELETE queries 
 
 // Delete a product from cart 
 app.delete('/cart/:id', async (req,res) => {

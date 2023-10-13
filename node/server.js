@@ -201,33 +201,46 @@ app.post('/user/login', async(req, res) => {
 // Signup endpoint 
 app.post('/user/signup', async(req, res) => {
 
-  connection.query(   
-    `SELECT * FROM users WHERE username = "${req.body.username}" OR email = "${req.body.email}"`,
-    function(err, results, fields) {
-      if(err) {
-        res.send([]).status(500).end();
-      } else { 
-        // check if username or email already exists in the database
-        if (results.length > 0) {
-          return res.status(409).json({ message: 'Username or email already exists!' });
-        }
-        else {   
+  let input_username = req.body.username;
+  let input_email = req.body.email;
 
-          connection.query(
-            `INSERT INTO users (name, surname, username, password, email, city, address) 
-            VALUES ("${req.body.name}", "${req.body.surname}", "${req.body.username}", "${req.body.pwd}", 
-            "${req.body.email}", "${req.body.city}", "${req.body.addr}");`,
-            function(err, results1, fields) {
-              if(err)
-                res.send([]).status(500).end();
-              else
-                return res.status(200).json({ message: 'User created successfully!' });
+  if (input_username && input_email) {
+
+    if (input_username === '' || input_email === '' || input_username === ' ' || input_email === ' ') {
+      return res.status(409).json({ message: 'Username and email cannot be empty!' });
+    } else {
+      connection.query(   
+        `SELECT * FROM users WHERE username = "${input_username}" OR email = "${input_email}"`,
+        function(err, results, fields) {
+          if(err) {
+            res.send([]).status(500).end();
+          } else { 
+            // check if username or email already exists in the database
+            if (results.length > 0) {
+              return res.status(409).json({ message: 'Username or email already exists!' });
             }
-          );
+            else {   
+    
+              connection.query(
+                `INSERT INTO users (name, surname, username, password, email, city, address) 
+                VALUES ("${req.body.name}", "${req.body.surname}", "${input_username}", "${req.body.pwd}", 
+                "${input_email}", "${req.body.city}", "${req.body.addr}");`,
+                function(err, results1, fields) {
+                  if(err)
+                    res.send([]).status(500).end();
+                  else
+                    return res.status(200).json({ message: 'User created successfully!' });
+                }
+              );
+            }
+          }
         }
-      }
+      );
     }
-  );
+
+  } else {
+    return res.status(409).json({ message: 'Username and email cannot be empty!' });
+  }
 
 });
 

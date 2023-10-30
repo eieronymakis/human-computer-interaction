@@ -22,6 +22,17 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain)
 
+// Function to generate total order ID
+function generateOrderID(uid) {
+  // Get current date and time
+  const currentDate = new Date();
+  // Format the date and time as desired (for example, YYYYMMDD-HHMMSS)
+  const formattedDate = `${currentDate.getFullYear()}${(currentDate.getMonth() + 1).toString().padStart(2, '0')}${currentDate.getDate().toString().padStart(2, '0')}-${currentDate.getHours().toString().padStart(2, '0')}${currentDate.getMinutes().toString().padStart(2, '0')}${currentDate.getSeconds().toString().padStart(2, '0')}`;
+  // Concatenate the strings 'ORDER-', formatted date, and user's UID
+  const orderID = `ORDER-${formattedDate}-${uid}`; 
+  return orderID;
+}
+
 //// Fetch product functions endpoints 
 
 // Get all products 
@@ -246,6 +257,67 @@ app.post('/user/signup', async(req, res) => {
 
 //// Order functions endpoints 
 
+// Create a new order (new totalOrderId) and insert it in the database 
+app.post('/orders/', async (req,res) => {
+
+  uid = req.body.uid; // get user ID from request body
+  if (!uid) {
+    return res.status(400).send('User ID is required in the request body.');
+  }
+  const totalOrderID = generateOrderID(uid);
+  //const currentDatetime = new Date().toISOString().replace(/[-T:Z.]/g, ''); // get current datetime and format it
+  //const totalOrderID = 'ORDER-'${currentDatetime}-${uid};    
+
+  connection.query(
+    `INSERT INTO orders (uid, pid, totalOrderId, orderDate, orderAmount, orderCost)  
+    VALUES (${req.body.uid}, ${req.body.pid}, "${totalOrderID}", NOW(), ${req.body.amount}, ${req.body.cost})`,
+    function(err, results, fields) {
+      if(err) {
+        res.send([]).status(500).end();
+      }
+      else { 
+        // Create a response object with the totalOrderID field
+        const responseObject = {
+          totalOrderId: totalOrderID
+        };
+        // Send the response as JSON
+        res.json(responseObject);
+      }  
+    }
+  );
+
+}); 
+
+// Add product to an existing order (existing totalOrderId) and insert it in the database 
+app.post('/orders/addToOrder', async (req,res) => {
+  connection.query(
+    `INSERT INTO orders (uid, pid, totalOrderId, orderDate, orderAmount, orderCost)  
+    VALUES (${req.body.uid}, ${req.body.pid}, "${req.body.totalOrderId}", NOW(), ${req.body.amount}, ${req.body.cost})`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.status(200).json({ message: 'Added products to order successfully' });
+    }   
+  );
+}); 
+
+// Get all products from an existing total order (existing totalOrderId)
+app.get('/orders/:totalOrderId/products', async (req,res) => {
+  connection.query(
+    `SELECT * FROM orders WHERE totalOrderId = "${req.params.totalOrderId}"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+}); 
+
+//// Cart functions endpoints 
+
 // Insert a product in cart 
 app.post('/carts', async (req,res) => {
   connection.query(
@@ -261,7 +333,7 @@ app.post('/carts', async (req,res) => {
   res.send(data);
 });  
 
-// Create a product order 
+// Delete a product from user's cart 
 app.delete('/cart/:id', async (req,res) => {
   connection.query(
     `DELETE FROM carts WHERE cid = ${req.params.id}`,
@@ -272,22 +344,8 @@ app.delete('/cart/:id', async (req,res) => {
         res.send(results)
     }
   );
-  res.send(data);
-});
-
-// Delete a product from cart 
-app.delete('/cart/:id', async (req,res) => {
-  connection.query(
-    `DELETE FROM carts WHERE cid = ${req.params.id}`,
-    function(err, results, fields) {
-      if(err)
-        res.send([]).status(500).end();
-      else
-        res.send(results)
-    }
-  );
-  res.send(data);
-});
+  res.send(data);    
+});  
 
 app.get('/', (req, res) => {
   res.send({ message: 'Message From Express Backend!' });

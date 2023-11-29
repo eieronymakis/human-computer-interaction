@@ -276,6 +276,20 @@ app.post('/orders/', async (req,res) => {
     }
   );
 
+});       
+
+// Get all orders of a user based on uid 
+app.get('/users/:uid/orders', async (req,res) => {
+  connection.query(
+    `SELECT totalOrderId FROM orders WHERE uid = "${req.params.uid}" GROUP BY totalOrderId`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);  
 }); 
 
 // Get all products from an existing total order (existing totalOrderId)

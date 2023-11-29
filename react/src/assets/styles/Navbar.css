@@ -11,6 +11,10 @@ html{
   border-color: white !important;
 }
 
+.nav-link{
+  border: none !important;
+}
+
 [data-bs-theme=light] .navbar .nav-middle .nav-link:hover{
   font-weight: bold;
   color: #198754 !important;

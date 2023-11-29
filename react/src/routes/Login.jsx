@@ -5,24 +5,43 @@ import BreadCrumb from '../components/BreadCrumb';
 
 import '../assets/styles/Login.css';
 import image from '../assets/images/image 5.png'
+import {jwtDecode} from "jwt-decode";
 
 function Login(){
 
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     
-    const handleChangeEmail = (event) => {
-        setEmail(event.target.value);
+    const handleChangeUsername = (event) => {
+        setUsername(event.target.value);
     };
     const handleChangePassword = (event) => {
         setPassword(event.target.value);
     };
     const handleLogin = async () => {
-        if(email === "test" && password === "test"){
-            localStorage.setItem('loggedIn', "true")
-            localStorage.setItem('username', "eieronymakis")
-        }
+
+        const data = {usr:username, pwd:password}
+        try {
+            const response = await fetch("http://localhost:3005/user/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+        
+            const result = await response.json();
+            let token = result.token;
+            let tokenData = jwtDecode(token);
+            localStorage.setItem('username', tokenData.userName)
+            localStorage.setItem('userId', tokenData.userId)
+            window.location.href = "/";
+          } catch (error) {
+            console.error("Error:", error);
+          }
     }
+
+
 
     return(
         <div className="login">
@@ -39,7 +58,7 @@ function Login(){
                             <div className="mt-3 text-warning w-50 text-center fw-bold fs-5 ms-auto me-auto">
                                 Πατήστε παρακάτω για να φτιάξετε νέο λογαριασμό
                             </div>
-                            <div className="mt-5 text-light w-50 text-center fw-bold fs-5 ms-auto me-auto">
+                            <div className="mt-5 text-light text-center fw-bold fs-5 ms-auto me-auto w-100 d-flex align-items-center justify-content-center">
                                 <Link className="register-btn" to="/register">
                                     Δημιουργία λογαριασμού
                                 </Link>
@@ -59,7 +78,7 @@ function Login(){
                             Έχετε ήδη λογαριασμό ;
                         </div>
                         <div className="w-100 d-flex justify-content-center mt-4">
-                            <input onChange={handleChangeEmail} value={email} id="login-email" type="text" placeholder="Email"></input>
+                            <input onChange={handleChangeUsername} value={username} id="login-username" type="text" placeholder="Username"></input>
                         </div>
                         <div className="w-100 d-flex justify-content-center mt-3">
                             <input onChange={handleChangePassword} value={password} id="login-password" type="password" placeholder="Password"></input>

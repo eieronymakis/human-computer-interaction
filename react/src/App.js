@@ -12,6 +12,10 @@ import CheckOut from "./laz/pages/CheckOut";
 import Payment from "./laz/pages/Payment";
 import PaymentComplete from "./laz/pages/PaymentComplete";
 import Header from "./components/Header";
+import Register from "./routes/Register";
+import Profile from "./routes/Profile";
+import OrderHistory from "./routes/OrderHistory";
+import RegisterSuccess from "./routes/RegisterSuccess";
 
 function App() {
   return (
@@ -37,6 +41,14 @@ function App() {
         <Route path="/payment" element={<Payment />}>
         </Route>
         <Route path="/payment-complete" element={<PaymentComplete />}>
+        </Route>
+        <Route path="/register" element={<Register />}>
+        </Route>
+        <Route path="/profile" element={<Profile />}>
+        </Route>
+        <Route path="/order-history" element={<OrderHistory />}>
+        </Route>
+        <Route path="/register-success" element={<RegisterSuccess />}>
         </Route>
       </Routes>
       <Footer />

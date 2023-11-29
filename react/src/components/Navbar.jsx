@@ -3,12 +3,27 @@ import { Link } from "react-router-dom";
 
 import '../assets/styles/Navbar.css';
 import '../assets/styles/CategoryNav.css';
+import { border } from "@mui/system";
 
 function Navbar(){
 
     const getStoredTheme = () => localStorage.getItem('theme')
     const setStoredTheme = theme => localStorage.setItem('theme', theme)
 
+    const handleLogout = async() => {
+        localStorage.removeItem('username')
+        localStorage.removeItem('userId')
+        window.location.href = "/";
+    }
+
+    useEffect(() => {
+        let username = localStorage.getItem('username');
+        let userId = localStorage.getItem('userId');
+        if(username){
+            setUsername(username)
+            setLoggedIn(true)
+        }
+    }, []); 
 
     useEffect(() => {
         if (getStoredTheme() === 'dark'){
@@ -107,7 +122,7 @@ function Navbar(){
                                 <div className="text-dark fs-5 fw-normal">Επικοινωνία</div>
                             </Link>
                             <li><hr className="dropdown-divider"/></li>
-                            <button className="profile-dropdown-item dropdown-logout d-flex align-items-center justify-content-start">
+                            <button className="border-0 p-0 bg-transparent profile-dropdown-item dropdown-logout d-flex align-items-center justify-content-start" onClick={handleLogout}>
                                 <i className="text-dark fs-3 bi bi-door-open-fill me-3 ms-3"></i>
                                 <div className="text-dark fs-5 fw-normal">Αποσύνδεση</div>
                             </button>

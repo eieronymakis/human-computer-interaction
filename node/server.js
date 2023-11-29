@@ -325,7 +325,7 @@ app.delete('/cart/:id', async (req,res) => {
 
 //// User endpoints 
 
-// Get user data endpoint (for profile) based on user's uid 
+// Get user data based on user's uid
 app.get('/users/:uid', async(req, res) => {
   connection.query(
     `SELECT * FROM users WHERE uid = "${req.params.uid}"`,
@@ -338,6 +338,22 @@ app.get('/users/:uid', async(req, res) => {
   );
   res.send(data);  
 });
+
+// Update user data based on user's uid 
+app.post('/users/:uid/update', async (req,res) => {
+  connection.query(
+    `UPDATE users SET name = "${req.body.name}", surname = "${req.body.surname}", username = "${req.body.username}", 
+    password = "${req.body.pwd}", email = "${req.body.email}", city = "${req.body.city}", 
+    address = "${req.body.addr}" WHERE uid = "${req.params.uid}" AND username = "${req.body.username}"`,
+    function(err, results, fields) { 
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+}); 
 
 app.get('/', (req, res) => {
   res.send({ message: 'Message From Express Backend!' });

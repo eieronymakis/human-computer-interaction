@@ -323,6 +323,22 @@ app.delete('/cart/:id', async (req,res) => {
   res.send(data);    
 });  
 
+//// User endpoints 
+
+// Get user data endpoint (for profile) based on user's uid 
+app.get('/users/:uid', async(req, res) => {
+  connection.query(
+    `SELECT * FROM users WHERE uid = "${req.params.uid}"`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);  
+});
+
 app.get('/', (req, res) => {
   res.send({ message: 'Message From Express Backend!' });
 });

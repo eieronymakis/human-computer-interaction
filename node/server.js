@@ -248,58 +248,34 @@ app.post('/user/signup', async(req, res) => {
 //// Order functions endpoints 
 
 // Create a new order (new totalOrderId) and insert it in the database 
-app.post('/orders', async (req,res) => {   
+app.post('/orders/', async (req,res) => {
 
-  const orderData = req.body;
-  const uid = orderData.uid; // the user's id 
+  uid = req.body.uid; // get user ID from request body
   if (!uid) {
     return res.status(400).send('User ID is required in the request body.');
   }
+  const totalOrderID = generateOrderID(uid);
+  //const currentDatetime = new Date().toISOString().replace(/[-T:Z.]/g, ''); // get current datetime and format it
+  //const totalOrderID = 'ORDER-'${currentDatetime}-${uid};    
 
-  const totalOrderID = generateOrderID(uid); // Generate totalOrderID based on datetimer and uid
-  const orderItems = orderData.orderItems;
-  if (!orderItems) {
-    return res.status(400).send('Order items are required in the request body.');
-  }
-  const numberOfProducts = orderItems.length;
-  const success_flag = 1;
-
-  // Loop through order items and perform order insertion in the db 
-  for (let i = 0; i < numberOfProducts; i++) {
-      const pid = orderItems[i].productId;
-      const amount = orderItems[i].amount;
-      const cost = orderItems[i].price;  
-
-      // Perform order insertion in the db 
-      connection.query(
-        `INSERT INTO orders (uid, pid, totalOrderId, orderDate, orderAmount, orderCost, status)  
-        VALUES (${uid}, ${pid}, "${totalOrderID}", NOW(), ${amount}, ${cost}, "pending")`,
-        function(err, results, fields) {
-          if (err) {
-            success_flag = 0; 
-            console.error('Error inserting data into the database: ' + err.stack);
-          } else {  
-            console.log('Order created successfully!');    
-          }
-        }     
-      );   
-  }
-
-  // Delete all products from user's cart 
   connection.query(
-    `DELETE FROM carts WHERE uid = ${uid}`,
+    `INSERT INTO orders (uid, pid, totalOrderId, orderDate, orderAmount, orderCost)  
+    VALUES (${req.body.uid}, ${req.body.pid}, "${totalOrderID}", NOW(), ${req.body.amount}, ${req.body.cost})`,
     function(err, results, fields) {
-      if(err)
-        success_flag = 0; 
+      if(err) {
+        res.send([]).status(500).end();
+      }
+      else { 
+        // Create a response object with the totalOrderID field
+        const responseObject = {
+          totalOrderId: totalOrderID
+        };
+        // Send the response as JSON
+        res.json(responseObject);
+      }  
     }
   );
 
-  if (success_flag == 1) { 
-    return res.status(200).json({ message: 'Order created successfully!' }); 
-  } else {
-    return res.status(401).json({ message: 'Something went wrong!' }); 
-  }
-        
 }); 
 
 // Get all products from an existing total order (existing totalOrderId)

@@ -167,6 +167,37 @@ app.get('/users/:uid/cart', async (req,res) => {
   );
 });
 
+// Insert a product in cart 
+app.post('/carts', async (req,res) => {
+  connection.query(
+    `INSERT INTO carts (uid, pid, insertionDate, amount, price) 
+    VALUES (${req.body.uid}, ${req.body.pid}, NOW(), ${req.body.amount}, ${req.body.price})`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);
+});    
+
+// Delete a product from user's cart 
+app.delete('/cart/:id', async (req,res) => {
+  connection.query(
+    `DELETE FROM carts WHERE cid = ${req.params.id}`,
+    function(err, results, fields) {
+      if(err)
+        res.send([]).status(500).end();
+      else
+        res.send(results)
+    }
+  );
+  res.send(data);    
+}); 
+
+
+
 //// Login and signup endpoints 
 
 // Login endpoint with JWT authentication 
@@ -305,37 +336,6 @@ app.get('/orders/:totalOrderId/products', async (req,res) => {
   );
   res.send(data);  
 }); 
-
-//// Cart functions endpoints 
-
-// Insert a product in cart 
-app.post('/carts', async (req,res) => {
-  connection.query(
-    `INSERT INTO carts (uid, pid, insertionDate, amount, price) 
-    VALUES (${req.body.uid}, ${req.body.pid}, NOW(), ${req.body.amount}, ${req.body.price})`,
-    function(err, results, fields) {
-      if(err)
-        res.send([]).status(500).end();
-      else
-        res.send(results)
-    }
-  );
-  res.send(data);
-});    
-
-// Delete a product from user's cart 
-app.delete('/cart/:id', async (req,res) => {
-  connection.query(
-    `DELETE FROM carts WHERE cid = ${req.params.id}`,
-    function(err, results, fields) {
-      if(err)
-        res.send([]).status(500).end();
-      else
-        res.send(results)
-    }
-  );
-  res.send(data);    
-});  
 
 //// User endpoints 
 

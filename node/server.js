@@ -183,10 +183,10 @@ app.post('/carts', async (req,res) => {
 });    
 
 // Delete a product from user's cart 
-app.delete('/cart/:id', async (req,res) => {
+app.delete('/carts/:id', async (req,res) => {
   connection.query(
     `DELETE FROM carts WHERE cid = ${req.params.id}`,
-    function(err, results, fields) {
+     function(err, results, fields) {
       if(err)
         res.send([]).status(500).end();
       else
@@ -195,6 +195,18 @@ app.delete('/cart/:id', async (req,res) => {
   );
   res.send(data);    
 }); 
+
+app.delete('/users/:uid/cart',async(req,res) => {
+  connection.query(
+    `DELETE FROM carts WHERE uid = ${req.params.uid}`,
+    function(err,results){
+      if(err)
+       res.send([]).status(500).end();
+      else
+       res.send(results)
+  });  
+  res.send(data);    
+     });
 
 
 

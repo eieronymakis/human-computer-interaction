@@ -186,7 +186,7 @@ app.post('/user/login', async(req, res) => {
             token = jwt.sign({ userId: results[0].uid, userName: results[0].username }, secretKey, { expiresIn: '1h' });
             res.json({ token });  
           } else {
-            return res.status(200).json({ message: 'Wrong username or password!' });
+            return res.status(401).json({ message: 'Wrong username or password!' });
           }
         }  
       }

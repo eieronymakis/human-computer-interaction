@@ -7,7 +7,6 @@ import ProductCarousel from "../components/ProductCarousel";
 import '../assets/styles/Home.css';
 import bannerRight from '../assets/images/image 1.png';
 
-
 function Home(){
     return (
         <div className="Home">

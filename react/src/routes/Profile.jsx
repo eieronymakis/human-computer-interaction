@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import BreadCrumb from '../components/BreadCrumb';
-import Footer from '../components/Footer';
 
 import '../assets/styles/Profile.css';
-import image from '../assets/images/image 5.png'
 
 function Profile(){
 
@@ -39,29 +35,28 @@ function Profile(){
             <BreadCrumb                 
                 items={[{"path":"/profile","label":"Λογαριασμός"}]}>
             </BreadCrumb>
-            <div className="ms-auto me-auto mt-3 account-container d-flex">
-
-                <div className="right d-flex align-items-center justify-content-center">
-                    <div className="account-form">  
-                        <div className="w-100 d-flex justify-content-center mt-4">
-                            <input className="border border-2" onChange={handleChangeName} value={firstName} id="account-first-name" type="text" placeholder="Όνομα"></input>
-                            <input className="border border-2" onChange={handleChangeSurname} value={lastName} id="account-last-name" type="text" placeholder="Επίθετο"></input>
+            <div className="ms-auto me-auto mt-3 account-container d-flex bg-body border border-2">
+                <div className="account-container-left d-flex justify-content-center align-items-center flex-column">
+                    <span className="description w-90 mb-5">Επεξεργαστείτε τα στοιχεία σας</span>
+                    <div className="d-flex flex-row align-items-center">
+                        <div className="avatar">
+                            <img src="https://gitlab.inria.fr/uploads/-/system/user/avatar/641/avatar.png"></img>
                         </div>
-                        <div className="w-100 mt-4 shift-right-input">  
-                            <input className="border border-2" onChange={handleChangeEmail} value={email} id="account-email" type="email" placeholder="Email"></input>
-                        </div>
-                        <div className="w-100 d-flex justify-content-center mt-4">
-                            <input className="border border-2" onChange={handleChangePassword} value={password} id="account-password" type="password" placeholder="Κωδικός Πρόσβασης"></input>
-                            <input className="border border-2" onChange={handleChangePassword2} value={password2} id="account-password-2" type="password" placeholder="Επιβεβαίωση Κωδικού"></input>
-                        </div>
+                        <span className="ms-3 username">atzavaras</span>
                     </div>
-      
                 </div>
-
+                <div className="account-container-right d-flex align-items-center justify-content-center">
+                    <div className="account-form d-flex flex-column">  
+                        <input className="border border-2 mb-2" onChange={handleChangeName} value={firstName} id="account-first-name" type="text" placeholder="Όνομα"></input>
+                        <input className="border border-2 mb-2" onChange={handleChangeSurname} value={lastName} id="account-last-name" type="text" placeholder="Επίθετο"></input>
+                        <input className="border border-2 mb-2" onChange={handleChangeEmail} value={email} id="account-email" type="email" placeholder="Email"></input>
+                        <input className="border border-2 mb-2" onChange={handleChangePassword} value={password} id="account-password" type="password" placeholder="Κωδικός Πρόσβασης"></input>
+                        <input className="border border-2 mb-2" onChange={handleChangePassword2} value={password2} id="account-password-2" type="password" placeholder="Επιβεβαίωση Κωδικού"></input>
+                    </div>
+                </div>
             </div>   
-                
-            <div className="left w-100 d-flex mt-5 justify-content-center">
-                <button onClick={handleRegister} className="shift-right-btn save-changes-btn btn btn-success">ΑΠΟΘΗΚΕΥΣΗ ΑΛΛΑΓΩΝ</button>
+            <div className="w-100 d-flex align-items-center justify-content-center mt-5">
+                <button onClick={handleRegister} className="btn btn-success">ΑΠΟΘΗΚΕΥΣΗ ΑΛΛΑΓΩΝ</button>
             </div>   
         </div>
     )

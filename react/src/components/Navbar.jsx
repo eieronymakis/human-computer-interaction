@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import '../assets/styles/Navbar.css';
 import '../assets/styles/CategoryNav.css';
+import SearchOverlay from '../components/SearchOverlay';
+
 import { border } from "@mui/system";
 
 function Navbar(){
@@ -90,7 +92,9 @@ function Navbar(){
                         <span className="d-flex align-items-center tag">ΕΠΙΚΟΙΝΩΝΙΑ</span>
                     </Link>
                 </div>
-
+                <div className="me-2">
+                    <SearchOverlay></SearchOverlay>
+                </div>
                 {!loggedIn &&
                     <div className="d-flex">
                         <Link to="/login" className="text-light btn btn-success shadow-none me-2 d-flex navbar-btn-login d-flex align-items-center justify-content-center ">

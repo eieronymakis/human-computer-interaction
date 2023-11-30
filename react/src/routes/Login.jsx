@@ -11,6 +11,7 @@ function Login(){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [alert, setAlert] = useState(false)
     
     const handleChangeUsername = (event) => {
         setUsername(event.target.value);
@@ -29,13 +30,16 @@ function Login(){
               },
               body: JSON.stringify(data),
             });
-        
-            const result = await response.json();
-            let token = result.token;
-            let tokenData = jwtDecode(token);
-            localStorage.setItem('username', tokenData.userName)
-            localStorage.setItem('userId', tokenData.userId)
-            window.location.href = "/";
+            if(response.status == 401){
+                setAlert(true)
+            }else{
+                const result = await response.json();
+                let token = result.token;
+                let tokenData = jwtDecode(token);
+                localStorage.setItem('username', tokenData.userName)
+                localStorage.setItem('userId', tokenData.userId)
+                window.location.href = "/";
+            }
           } catch (error) {
             console.error("Error:", error);
           }
@@ -48,6 +52,14 @@ function Login(){
             <BreadCrumb                 
                 items={[{"path":"/login","label":"Σύνδεση"}]}>
             </BreadCrumb>
+            {alert &&
+                <div class="alert alert-danger d-flex align-items-center w-50 ms-auto me-auto mt-2" role="alert">
+                    <i class="bi bi-exclamation-triangle me-5"></i>
+                    <div>
+                        Παρακαλώ ελέγξτε τα στοιχεία εισόδου και ξαναπροσπαθήστε
+                    </div>
+                </div>
+            }
             <div className="ms-auto me-auto mt-3 login-container d-flex">
                 <div className="left">
                         <img className="image-hover" alt="" src={image}></img>

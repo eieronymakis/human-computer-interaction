@@ -179,7 +179,6 @@ app.post('/carts', async (req,res) => {
         res.send(results)
     }
   );
-  res.send(data);
 });    
 
 // Delete a product from user's cart 
@@ -193,7 +192,6 @@ app.delete('/carts/:id', async (req,res) => {
         res.send(results)
     }
   );
-  res.send(data);    
 }); 
 
 app.delete('/users/:uid/cart',async(req,res) => {
@@ -204,9 +202,8 @@ app.delete('/users/:uid/cart',async(req,res) => {
        res.send([]).status(500).end();
       else
        res.send(results)
-  });  
-  res.send(data);    
-     });
+  });     
+});
 
 
 
@@ -356,7 +353,6 @@ app.get('/users/:uid/orders', async (req,res) => {
         res.send(results)
     }
   );
-  res.send(data);  
 }); 
 
 // Get all products from an existing total order (existing totalOrderId)
@@ -370,7 +366,6 @@ app.get('/orders/:totalOrderId/products', async (req,res) => {
         res.send(results)
     }
   );
-  res.send(data);  
 }); 
 
 //// User endpoints 

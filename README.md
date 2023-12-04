@@ -16,3 +16,8 @@
 ## Docker service diagram
 
 ![image](https://github.com/eieronymakis/human-computer-interaction/blob/main/human-computer-interaction.drawio.png?raw=true)
+
+## How to deploy
+* Make sure docker & docker compose is installed on your machine
+* Navigate to the project folder in your machine
+* Simply run ``` docker compose up ```
